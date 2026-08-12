@@ -419,11 +419,13 @@ script = ExtResource("9_tx1dd")
 
 [node name="Player Stats" type="Node2D" parent="." unique_id=1223689273]
 script = ExtResource("1_v0iea")
-max_hp = 1
 
 [node name="Weapon Manager" type="Node2D" parent="." unique_id=1161468509]
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=845237107]
 position_smoothing_enabled = true
+
+[node name="Timer" type="Timer" parent="." unique_id=1571670824]
+one_shot = true
 
 [connection signal="animation_finished" from="Animated Sprite" to="Components/Movement Component" method="_on_animated_sprite_animation_finished"]
