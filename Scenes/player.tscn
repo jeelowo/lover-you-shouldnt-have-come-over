@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://b3fe5cdaa0l67" path="res://Assets/Sprites/Run.png" id="5_gymyn"]
 [ext_resource type="Texture2D" uid="uid://dahx22uq1q51i" path="res://Assets/Sprites/Walk.png" id="6_pu2lt"]
 [ext_resource type="Script" uid="uid://dpgmuqllln7yg" path="res://Scripts/movement_component.gd" id="8_tx1dd"]
+[ext_resource type="Script" uid="uid://o0lyhcauma6x" path="res://Scripts/health_component.gd" id="9_tx1dd"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ukyrk"]
 atlas = ExtResource("1_3smsa")
@@ -410,14 +411,17 @@ shape = SubResource("CapsuleShape2D_b6em2")
 
 [node name="Components" type="Node2D" parent="." unique_id=1040465914]
 
-[node name="Movement Component" type="Node2D" parent="Components" unique_id=80222336 node_paths=PackedStringArray("player", "player_stats", "animated_sprite")]
+[node name="Movement Component" type="Node2D" parent="Components" unique_id=80222336]
 script = ExtResource("8_tx1dd")
-player = NodePath("../..")
-player_stats = NodePath("../../Player Stats")
-animated_sprite = NodePath("../../Animated Sprite")
+
+[node name="Health Component" type="Node2D" parent="Components" unique_id=1679241257]
+script = ExtResource("9_tx1dd")
 
 [node name="Player Stats" type="Node2D" parent="." unique_id=1223689273]
 script = ExtResource("1_v0iea")
+max_hp = 1
+
+[node name="Weapon Manager" type="Node2D" parent="." unique_id=1161468509]
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=845237107]
 position_smoothing_enabled = true

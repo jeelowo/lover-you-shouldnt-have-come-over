@@ -1,8 +1,8 @@
 extends Node2D
 
-@export var player = CharacterBody2D
-@export var player_stats: Node2D
-@export var animated_sprite: AnimatedSprite2D
+@onready var player: CharacterBody2D = $"../.."
+@onready var player_stats: Node2D = $"../../Player Stats"
+@onready var animated_sprite: AnimatedSprite2D = $"../../Animated Sprite"
 
 var direction : Vector2
 var idle_animations
