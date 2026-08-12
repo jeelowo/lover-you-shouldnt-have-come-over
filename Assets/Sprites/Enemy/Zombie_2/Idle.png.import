@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bro650h1qj4od"
-path="res://.godot/imported/Idle_2.png-ee77891eed8e9730fb05e93273d6ed17.ctex"
+uid="uid://df74v1gy6tcmy"
+path="res://.godot/imported/Idle.png-11bf5abdcc6f58527c444e30b85d474c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Idle_2.png"
-dest_files=["res://.godot/imported/Idle_2.png-ee77891eed8e9730fb05e93273d6ed17.ctex"]
+source_file="res://Assets/Sprites/Enemy/Zombie_2/Idle.png"
+dest_files=["res://.godot/imported/Idle.png-11bf5abdcc6f58527c444e30b85d474c.ctex"]
 
 [params]
 

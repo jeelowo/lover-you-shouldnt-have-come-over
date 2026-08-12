@@ -1,4 +1,4 @@
-extends Node
+extends Node2D
 
 #@onready var timer: Timer = $"../../Timer"
 @onready var player_stats: Node2D = $"../../Player Stats"

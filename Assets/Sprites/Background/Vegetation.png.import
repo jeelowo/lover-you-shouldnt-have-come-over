@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dahx22uq1q51i"
-path="res://.godot/imported/Walk.png-f59ab941b445083dcdeca00117036210.ctex"
+uid="uid://ctd1qdrioo0wg"
+path="res://.godot/imported/Vegetation.png-9e45f13b98692c5fa06d022006045c99.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Walk.png"
-dest_files=["res://.godot/imported/Walk.png-f59ab941b445083dcdeca00117036210.ctex"]
+source_file="res://Assets/Sprites/Background/Vegetation.png"
+dest_files=["res://.godot/imported/Vegetation.png-9e45f13b98692c5fa06d022006045c99.ctex"]
 
 [params]
 
