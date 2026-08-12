@@ -2,14 +2,23 @@
 
 [ext_resource type="PackedScene" uid="uid://dtimsjpi7k33j" path="res://Scenes/player.tscn" id="1_ebmjs"]
 [ext_resource type="PackedScene" uid="uid://bjnq55uu1aes2" path="res://Scenes/background.tscn" id="1_qxrlw"]
+[ext_resource type="PackedScene" uid="uid://byh6adbr1glxv" path="res://Scenes/zombie.tscn" id="2_3dryh"]
 [ext_resource type="PackedScene" uid="uid://bbqneleiu8nbk" path="res://Scenes/audio_manager.tscn" id="3_wrm1d"]
 
 [node name="Game" type="Node2D" unique_id=1215447500]
-y_sort_enabled = true
 
 [node name="Background" parent="." unique_id=300832743 instance=ExtResource("1_qxrlw")]
 scale = Vector2(2, 2)
 
 [node name="Player" parent="." unique_id=1776890117 instance=ExtResource("1_ebmjs")]
+z_index = 1
+position = Vector2(-252, -33)
+
+[node name="Enemy Manager" type="Node2D" parent="." unique_id=822169317]
+y_sort_enabled = true
+
+[node name="Zombie" parent="Enemy Manager" unique_id=768690002 instance=ExtResource("2_3dryh")]
+z_index = 1
+position = Vector2(-252, -68)
 
 [node name="Audio Manager" parent="." unique_id=1472686142 instance=ExtResource("3_wrm1d")]

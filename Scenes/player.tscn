@@ -396,7 +396,7 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_b6em2"]
-height = 68.0
+height = 32.0
 
 [node name="Player" type="CharacterBody2D" unique_id=1776890117]
 script = ExtResource("1_f1ek2")
@@ -407,7 +407,7 @@ sprite_frames = SubResource("SpriteFrames_cvnsp")
 animation = &"Idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=314876745]
-position = Vector2(-1, 5)
+position = Vector2(-1, 23)
 shape = SubResource("CapsuleShape2D_b6em2")
 
 [node name="Components" type="Node2D" parent="." unique_id=1040465914]
@@ -427,6 +427,7 @@ script = ExtResource("1_v0iea")
 [node name="Weapon Manager" type="Node2D" parent="." unique_id=1161468509]
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=845237107]
+zoom = Vector2(1.5, 1.5)
 position_smoothing_enabled = true
 
 [node name="Timer" type="Timer" parent="." unique_id=1571670824]

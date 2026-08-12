@@ -1,10 +1,12 @@
 [gd_scene format=3 uid="uid://byh6adbr1glxv"]
 
+[ext_resource type="Script" uid="uid://0weqy0dt4hg" path="res://Scripts/zombie.gd" id="1_5ia6i"]
 [ext_resource type="Texture2D" uid="uid://cagt5aewmq44q" path="res://Assets/Sprites/Enemy/Zombie_1/Attack.png" id="1_vy0uf"]
 [ext_resource type="Texture2D" uid="uid://w5xgljs6xt5x" path="res://Assets/Sprites/Enemy/Zombie_1/Dead.png" id="2_w2xga"]
 [ext_resource type="Texture2D" uid="uid://bdrb1sn61rcya" path="res://Assets/Sprites/Enemy/Zombie_1/Hurt.png" id="3_4slyf"]
 [ext_resource type="Texture2D" uid="uid://tgmvqo16s1p2" path="res://Assets/Sprites/Enemy/Zombie_1/Walk.png" id="4_5ia6i"]
 [ext_resource type="Script" uid="uid://b73j8ntrlsue" path="res://Scripts/State_Machine.gd" id="5_w2xga"]
+[ext_resource type="Script" uid="uid://5rr2omaeff6p" path="res://Scripts/walk_to_player.gd" id="6_4slyf"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xx3wb"]
 atlas = ExtResource("1_vy0uf")
@@ -198,26 +200,30 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_b6em2"]
-height = 64.0
+height = 26.0
 
-[node name="CharacterBody2D" type="CharacterBody2D" unique_id=768690002]
+[node name="Zombie" type="CharacterBody2D" unique_id=768690002]
+script = ExtResource("1_5ia6i")
 
 [node name="Animated Sprite" type="AnimatedSprite2D" parent="." unique_id=483464546]
 position = Vector2(3, -32)
 sprite_frames = SubResource("SpriteFrames_b6em2")
 animation = &"Walk 1"
-frame_progress = 0.28238583
+frame_progress = 0.39942157
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=329628457]
+position = Vector2(0, 19)
 shape = SubResource("CapsuleShape2D_b6em2")
 
-[node name="State Machine" type="Node2D" parent="." unique_id=154979203]
+[node name="State Machine" type="Node2D" parent="." unique_id=154979203 node_paths=PackedStringArray("initial_state")]
 script = ExtResource("5_w2xga")
+initial_state = NodePath("Walk")
 
-[node name="Node2D" type="Node2D" parent="State Machine" unique_id=1106819574]
+[node name="Walk" type="Node2D" parent="State Machine" unique_id=1106819574]
+script = ExtResource("6_4slyf")
 
-[node name="Node2D2" type="Node2D" parent="State Machine" unique_id=1650127727]
+[node name="Die" type="Node2D" parent="State Machine" unique_id=1650127727]
 
-[node name="Node2D3" type="Node2D" parent="State Machine" unique_id=861212781]
+[node name="Attack" type="Node2D" parent="State Machine" unique_id=861212781]
 
-[node name="Node2D4" type="Node2D" parent="State Machine" unique_id=1019836651]
+[node name="Hurt" type="Node2D" parent="State Machine" unique_id=1019836651]
