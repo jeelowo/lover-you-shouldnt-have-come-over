@@ -1,12 +1,14 @@
 [gd_scene format=3 uid="uid://dtimsjpi7k33j"]
 
 [ext_resource type="Texture2D" uid="uid://d35ofbv2ohcav" path="res://Assets/Sprites/Dead.png" id="1_3smsa"]
+[ext_resource type="Script" uid="uid://b38q011ox5vvl" path="res://Scripts/player.gd" id="1_f1ek2"]
 [ext_resource type="Script" uid="uid://cuodk6cig4nag" path="res://Scripts/player_stats.gd" id="1_v0iea"]
 [ext_resource type="Texture2D" uid="uid://dcufovrfympo0" path="res://Assets/Sprites/Hurt.png" id="2_8erm5"]
 [ext_resource type="Texture2D" uid="uid://btywi67vmkann" path="res://Assets/Sprites/Idle.png" id="3_f1ek2"]
 [ext_resource type="Texture2D" uid="uid://bro650h1qj4od" path="res://Assets/Sprites/Idle_2.png" id="4_tx1dd"]
 [ext_resource type="Texture2D" uid="uid://b3fe5cdaa0l67" path="res://Assets/Sprites/Run.png" id="5_gymyn"]
 [ext_resource type="Texture2D" uid="uid://dahx22uq1q51i" path="res://Assets/Sprites/Walk.png" id="6_pu2lt"]
+[ext_resource type="Script" uid="uid://dpgmuqllln7yg" path="res://Scripts/movement_component.gd" id="8_tx1dd"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ukyrk"]
 atlas = ExtResource("1_3smsa")
@@ -269,9 +271,9 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_y6uwr")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"Idle",
-"speed": 10.0
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -316,9 +318,9 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ph33w")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"Idle_2",
-"speed": 10.0
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -395,12 +397,12 @@ animations = [{
 height = 68.0
 
 [node name="Player" type="CharacterBody2D" unique_id=1776890117]
+script = ExtResource("1_f1ek2")
 
 [node name="Animated Sprite" type="AnimatedSprite2D" parent="." unique_id=893593177]
 position = Vector2(2, -25)
 sprite_frames = SubResource("SpriteFrames_cvnsp")
 animation = &"Idle"
-autoplay = "Idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=314876745]
 position = Vector2(-1, 5)
@@ -408,7 +410,16 @@ shape = SubResource("CapsuleShape2D_b6em2")
 
 [node name="Components" type="Node2D" parent="." unique_id=1040465914]
 
-[node name="Player Stats" type="Node2D" parent="." unique_id=1208487603]
+[node name="Movement Component" type="Node2D" parent="Components" unique_id=80222336 node_paths=PackedStringArray("player", "player_stats", "animated_sprite")]
+script = ExtResource("8_tx1dd")
+player = NodePath("../..")
+player_stats = NodePath("../../Player Stats")
+animated_sprite = NodePath("../../Animated Sprite")
+
+[node name="Player Stats" type="Node2D" parent="." unique_id=1223689273]
 script = ExtResource("1_v0iea")
 
-[node name="State Manager" type="Node2D" parent="." unique_id=572479195]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=845237107]
+position_smoothing_enabled = true
+
+[connection signal="animation_finished" from="Animated Sprite" to="Components/Movement Component" method="_on_animated_sprite_animation_finished"]
