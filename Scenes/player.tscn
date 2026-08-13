@@ -11,6 +11,7 @@
 [ext_resource type="Script" uid="uid://dpgmuqllln7yg" path="res://Scripts/Components/movement_component.gd" id="8_tx1dd"]
 [ext_resource type="Script" uid="uid://o0lyhcauma6x" path="res://Scripts/Components/health_component.gd" id="9_tx1dd"]
 [ext_resource type="Script" uid="uid://bm1k5m7orvk80" path="res://Scripts/Components/knockback_component.gd" id="10_gymyn"]
+[ext_resource type="Script" uid="uid://c26x4qybcl8au" path="res://Scenes/player_hurtbox.gd" id="12_pu2lt"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ukyrk"]
 atlas = ExtResource("1_3smsa")
@@ -398,6 +399,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b6em2"]
 size = Vector2(17, 38)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bge8u"]
+size = Vector2(19, 67.5)
+
 [node name="Player" type="CharacterBody2D" unique_id=1776890117]
 script = ExtResource("1_f1ek2")
 
@@ -425,6 +429,13 @@ script = ExtResource("10_gymyn")
 script = ExtResource("1_v0iea")
 
 [node name="Weapon Manager" type="Node2D" parent="." unique_id=1161468509]
+
+[node name="Hurtbox" type="Area2D" parent="." unique_id=955989400]
+script = ExtResource("12_pu2lt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=980744594]
+position = Vector2(-0.5, -15.25)
+shape = SubResource("RectangleShape2D_bge8u")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=845237107]
 zoom = Vector2(1.5, 1.5)

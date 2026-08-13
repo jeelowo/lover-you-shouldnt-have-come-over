@@ -10,14 +10,13 @@ signal die
 
 func _ready() -> void:
 	current_hp = zombie_stats.max_hp
-	timer.start(3)
 
-@onready var timer: Timer = $"../../Timer"
+#@onready var timer: Timer = $"../../Timer"
 # for testing
-func _process(_delta: float) -> void:
-	if timer.is_stopped():
-		take_damage(1)
-		timer.start(0.05)
+#func _process(_delta: float) -> void:
+#	if timer.is_stopped():
+#		take_damage(1)
+#		timer.start(0.05)
 
 # Custom Functions
 func increase_max_hp(amount: float):

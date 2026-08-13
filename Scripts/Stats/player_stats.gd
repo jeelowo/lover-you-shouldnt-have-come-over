@@ -11,7 +11,6 @@ extends Node2D
 @export var xp_required : int
 @export var luck := 0.0
 @export var damage_modifier := 1.0
-@export var attack_speed := 1.0
 @export var area_modifier := 1.0
 @export var cooldown_reduction := 0.0
 

@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://b73j8ntrlsue" path="res://Scripts/States/State_Machine.gd" id="5_w2xga"]
 [ext_resource type="Script" uid="uid://5rr2omaeff6p" path="res://Scripts/States/walk_to_player.gd" id="6_4slyf"]
 [ext_resource type="Script" uid="uid://b4mmycyhc8glc" path="res://Scripts/States/die.gd" id="8_u2tw5"]
+[ext_resource type="Script" uid="uid://dapsl1dc3f7fb" path="res://Scripts/States/attack_player.gd" id="9_fj6an"]
 [ext_resource type="Script" uid="uid://dnxbw3cqhjuom" path="res://Scripts/States/hurt.gd" id="10_tmcj1"]
 [ext_resource type="Script" uid="uid://bfbmlj7ye1ehj" path="res://Scripts/Components/enemy_health_component.gd" id="11_u2tw5"]
 [ext_resource type="Script" uid="uid://bm1k5m7orvk80" path="res://Scripts/Components/knockback_component.gd" id="12_fj6an"]
@@ -211,9 +212,7 @@ size = Vector2(20, 34)
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bge8u"]
 height = 62.0
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pu2lt"]
-radius = 15.0
-height = 38.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_4g0pa"]
 
 [node name="Zombie" type="CharacterBody2D" unique_id=768690002]
 script = ExtResource("1_5ia6i")
@@ -237,6 +236,9 @@ script = ExtResource("6_4slyf")
 
 [node name="Die" type="Node2D" parent="State Machine" unique_id=1650127727]
 script = ExtResource("8_u2tw5")
+
+[node name="Attack" type="Node2D" parent="State Machine" unique_id=861212781]
+script = ExtResource("9_fj6an")
 
 [node name="Hurt" type="Node2D" parent="State Machine" unique_id=1019836651]
 script = ExtResource("10_tmcj1")
@@ -264,14 +266,16 @@ shape = SubResource("CapsuleShape2D_bge8u")
 script = ExtResource("14_aw8xw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Boxes/Hitbox" unique_id=570084912]
-position = Vector2(1, -16)
-shape = SubResource("CapsuleShape2D_pu2lt")
+position = Vector2(23, -35)
+shape = SubResource("CircleShape2D_4g0pa")
+disabled = true
 
 [node name="Timer" type="Timer" parent="." unique_id=976190827]
 one_shot = true
 
 [connection signal="damaged" from="Components/Health Component" to="State Machine/Walk" method="_on_health_component_damaged"]
 [connection signal="die" from="Components/Health Component" to="State Machine/Walk" method="_on_health_component_die"]
+[connection signal="die" from="Components/Health Component" to="State Machine/Attack" method="_on_health_component_die"]
 [connection signal="die" from="Components/Health Component" to="State Machine/Hurt" method="_on_health_component_die"]
 [connection signal="area_entered" from="Boxes/Hitbox" to="Boxes/Hitbox" method="_on_area_entered"]
 [connection signal="body_entered" from="Boxes/Hitbox" to="Boxes/Hitbox" method="_on_body_entered"]
