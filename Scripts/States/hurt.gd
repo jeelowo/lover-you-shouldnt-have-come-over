@@ -6,7 +6,6 @@ class_name Hurt
 @onready var zombie: CharacterBody2D = $"../.."
 @onready var zombie_stats: Node2D = $"../../Zombie Stats"
 @onready var timer: Timer = $"../../Timer"
-@onready var collision_shape_2d: CollisionShape2D = $"../../CollisionShape2D"
 
 var player : CharacterBody2D
 var initial_pos : Vector2
@@ -19,7 +18,6 @@ func Enter():
 	animated_sprite.animation_finished.connect(_on_animated_sprite_animation_finished)
 	
 	knockbacked = false
-	collision_shape_2d.disabled = true
 	initial_pos = zombie.global_position
 	animated_sprite.play("Hurt 1")
 

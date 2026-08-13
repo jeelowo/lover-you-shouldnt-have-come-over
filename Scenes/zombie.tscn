@@ -270,8 +270,12 @@ shape = SubResource("CapsuleShape2D_pu2lt")
 [node name="Timer" type="Timer" parent="." unique_id=976190827]
 one_shot = true
 
+[node name="DamageTimer" type="Timer" parent="." unique_id=1227831618]
+wait_time = 0.5
+
 [connection signal="damaged" from="Components/Health Component" to="State Machine/Walk" method="_on_health_component_damaged"]
 [connection signal="die" from="Components/Health Component" to="State Machine/Walk" method="_on_health_component_die"]
 [connection signal="die" from="Components/Health Component" to="State Machine/Hurt" method="_on_health_component_die"]
 [connection signal="area_entered" from="Boxes/Hitbox" to="Boxes/Hitbox" method="_on_area_entered"]
-[connection signal="body_entered" from="Boxes/Hitbox" to="Boxes/Hitbox" method="_on_body_entered"]
+[connection signal="area_exited" from="Boxes/Hitbox" to="Boxes/Hitbox" method="_on_area_exited"]
+[connection signal="timeout" from="DamageTimer" to="Boxes/Hitbox" method="_on_damage_timer_timeout"]

@@ -27,10 +27,12 @@ func increase_max_hp(amount: float):
 	print("max hp is now: " + str(zombie_stats.max_hp))
 
 func take_damage(amount: float):
-	if not invincible:
-		current_hp = max(current_hp - amount, 0)
-		damaged.emit(amount)
-		print("current_hp: " + str(current_hp))
+	if invincible:
+		return
+
+	current_hp = max(current_hp - amount, 0)
+	damaged.emit(amount)
+	print("current_hp: " + str(current_hp))
 
 	if current_hp <= 0:
 		print("you died lol")
