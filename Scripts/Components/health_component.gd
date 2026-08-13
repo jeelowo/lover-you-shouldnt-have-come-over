@@ -24,7 +24,7 @@ func increase_max_hp(amount: float):
 func take_damage(amount: float):
 	if invincible:
 		return
-	
+
 	var dmg = max(current_hp - (amount - player_stats.armor), 0)
 	if player_stats.armor > amount:
 		current_hp -= 1
@@ -45,7 +45,7 @@ func heal(amount: float):
 	if current_hp > player_stats.max_hp:
 		current_hp = player_stats.max_hp
 
-func _on_damaged(amount: float) -> void:
+func _on_damaged(_amount: float) -> void:
 	invincible = true
 	timer.start(1.2)
 	await timer.timeout

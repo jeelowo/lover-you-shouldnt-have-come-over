@@ -1,0 +1,123 @@
+[gd_scene format=3 uid="uid://bjrrf60fc5fc6"]
+
+[ext_resource type="Script" uid="uid://bqfngrvlgulec" path="res://Scripts/Stats/ember_stats.gd" id="1_7cv17"]
+[ext_resource type="Script" uid="uid://din2r6knyq5yj" path="res://ember_bullet.gd" id="2_87sfo"]
+[ext_resource type="Texture2D" uid="uid://bx0fgjf2j3hyd" path="res://Assets/Sprites/Weapon/240.png" id="2_o1452"]
+[ext_resource type="Texture2D" uid="uid://chrlxbj7os23m" path="res://Assets/Sprites/Weapon/Fire Weapons.png" id="3_87sfo"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8u6fj"]
+atlas = ExtResource("2_o1452")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ud4p6"]
+atlas = ExtResource("2_o1452")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j8p0c"]
+atlas = ExtResource("2_o1452")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dt1gt"]
+atlas = ExtResource("2_o1452")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x1hkb"]
+atlas = ExtResource("2_o1452")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8fjcq"]
+atlas = ExtResource("2_o1452")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tqg7h"]
+atlas = ExtResource("2_o1452")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l188f"]
+atlas = ExtResource("2_o1452")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bfv51"]
+atlas = ExtResource("2_o1452")
+region = Rect2(512, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2lg40"]
+atlas = ExtResource("2_o1452")
+region = Rect2(576, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g4v7s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8u6fj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ud4p6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j8p0c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dt1gt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x1hkb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8fjcq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tqg7h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l188f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bfv51")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2lg40")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 15.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g4v7s"]
+radius = 6.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
+size = Vector2(1900, 1200)
+
+[node name="Weapon Manager" type="Node2D" unique_id=269121661]
+
+[node name="Ember Shard" type="Node2D" parent="." unique_id=1436599268]
+
+[node name="Projectiles" type="Node2D" parent="Ember Shard" unique_id=1988415838]
+
+[node name="Ember Stats" type="Node2D" parent="Ember Shard" unique_id=507880259]
+script = ExtResource("1_7cv17")
+
+[node name="Ember Bullet" type="Area2D" parent="Ember Shard" unique_id=572567965]
+script = ExtResource("2_87sfo")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Ember Shard/Ember Bullet" unique_id=23366932]
+position = Vector2(-32, -1)
+rotation = -1.5707964
+sprite_frames = SubResource("SpriteFrames_g4v7s")
+frame_progress = 0.31937763
+
+[node name="Sprite2D" type="Sprite2D" parent="Ember Shard/Ember Bullet" unique_id=1693737224]
+scale = Vector2(2, 2)
+texture = ExtResource("3_87sfo")
+region_enabled = true
+region_rect = Rect2(52.971, 4.96, 6, 6)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ember Shard/Ember Bullet" unique_id=197223363]
+shape = SubResource("CircleShape2D_g4v7s")
+
+[node name="Area2D" type="Area2D" parent="Ember Shard" unique_id=230662747]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ember Shard/Area2D" unique_id=571243658]
+position = Vector2(1, 1.5)
+shape = SubResource("RectangleShape2D_g4v7s")
