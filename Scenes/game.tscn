@@ -19,6 +19,6 @@ y_sort_enabled = true
 
 [node name="Zombie" parent="Enemy Manager" unique_id=768690002 instance=ExtResource("2_3dryh")]
 z_index = 1
-position = Vector2(-252, -68)
+position = Vector2(-150, -104)
 
 [node name="Audio Manager" parent="." unique_id=1472686142 instance=ExtResource("3_wrm1d")]

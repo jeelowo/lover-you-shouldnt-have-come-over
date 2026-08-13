@@ -16,8 +16,8 @@ func _ready() -> void:
 # for testing
 func _process(_delta: float) -> void:
 	if timer.is_stopped():
-		take_damage(20)
-		timer.start(2)
+		take_damage(1)
+		timer.start(0.05)
 
 # Custom Functions
 func increase_max_hp(amount: float):

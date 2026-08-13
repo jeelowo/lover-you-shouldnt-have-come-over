@@ -395,20 +395,20 @@ animations = [{
 "speed": 10.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_b6em2"]
-height = 32.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b6em2"]
+size = Vector2(17, 38)
 
 [node name="Player" type="CharacterBody2D" unique_id=1776890117]
 script = ExtResource("1_f1ek2")
 
 [node name="Animated Sprite" type="AnimatedSprite2D" parent="." unique_id=893593177]
-position = Vector2(2, -25)
+position = Vector2(3, -45)
 sprite_frames = SubResource("SpriteFrames_cvnsp")
 animation = &"Idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=314876745]
-position = Vector2(-1, 23)
-shape = SubResource("CapsuleShape2D_b6em2")
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_b6em2")
 
 [node name="Components" type="Node2D" parent="." unique_id=1040465914]
 

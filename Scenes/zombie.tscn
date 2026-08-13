@@ -130,7 +130,7 @@ animations = [{
 }],
 "loop": 0,
 "name": &"Attack 1",
-"speed": 5.0
+"speed": 8.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -157,9 +157,6 @@ animations = [{
 "texture": SubResource("AtlasTexture_jrf8t")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_jrf8t")
-}, {
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_jgnkq")
 }, {
 "duration": 1.0,
@@ -167,13 +164,10 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ofjqa")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ofjqa")
 }],
 "loop": 0,
 "name": &"Hurt 1",
-"speed": 10.0
+"speed": 12.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -211,22 +205,26 @@ animations = [{
 "speed": 4.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_b6em2"]
-height = 26.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b6em2"]
+size = Vector2(20, 34)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bge8u"]
+height = 62.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4g0pa"]
 
 [node name="Zombie" type="CharacterBody2D" unique_id=768690002]
 script = ExtResource("1_5ia6i")
 
 [node name="Animated Sprite" type="AnimatedSprite2D" parent="." unique_id=483464546]
-position = Vector2(3, -32)
+position = Vector2(5, -47)
 sprite_frames = SubResource("SpriteFrames_b6em2")
-animation = &"Hurt 1"
-frame = 5
+animation = &"Attack 1"
+frame = 4
 frame_progress = 1.0
 
-[node name="Hurtbox" type="CollisionShape2D" parent="." unique_id=329628457]
-position = Vector2(0, 19)
-shape = SubResource("CapsuleShape2D_b6em2")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1557465099]
+shape = SubResource("RectangleShape2D_b6em2")
 
 [node name="State Machine" type="Node2D" parent="." unique_id=154979203 node_paths=PackedStringArray("initial_state")]
 script = ExtResource("5_w2xga")
@@ -254,6 +252,21 @@ script = ExtResource("12_fj6an")
 
 [node name="Zombie Stats" type="Node2D" parent="." unique_id=860716901]
 script = ExtResource("13_tmcj1")
+
+[node name="Boxes" type="Node2D" parent="." unique_id=586870158]
+
+[node name="Hurtbox" type="Area2D" parent="Boxes" unique_id=682858466]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boxes/Hurtbox" unique_id=165484892]
+position = Vector2(1, -14)
+shape = SubResource("CapsuleShape2D_bge8u")
+
+[node name="Hitbox" type="Area2D" parent="Boxes" unique_id=1060631862]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boxes/Hitbox" unique_id=570084912]
+position = Vector2(23, -35)
+shape = SubResource("CircleShape2D_4g0pa")
+disabled = true
 
 [node name="Timer" type="Timer" parent="." unique_id=976190827]
 one_shot = true
