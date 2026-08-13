@@ -5,12 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://w5xgljs6xt5x" path="res://Assets/Sprites/Enemy/Zombie_1/Dead.png" id="2_w2xga"]
 [ext_resource type="Texture2D" uid="uid://bdrb1sn61rcya" path="res://Assets/Sprites/Enemy/Zombie_1/Hurt.png" id="3_4slyf"]
 [ext_resource type="Texture2D" uid="uid://tgmvqo16s1p2" path="res://Assets/Sprites/Enemy/Zombie_1/Walk.png" id="4_5ia6i"]
-[ext_resource type="Script" uid="uid://b73j8ntrlsue" path="res://Scripts/States/State_Machine.gd" id="5_w2xga"]
-[ext_resource type="Script" uid="uid://5rr2omaeff6p" path="res://Scripts/States/walk_to_player.gd" id="6_4slyf"]
-[ext_resource type="Script" uid="uid://b4mmycyhc8glc" path="res://Scripts/States/die.gd" id="8_u2tw5"]
-[ext_resource type="Script" uid="uid://dapsl1dc3f7fb" path="res://Scripts/States/attack_player.gd" id="9_fj6an"]
-[ext_resource type="Script" uid="uid://dnxbw3cqhjuom" path="res://Scripts/States/hurt.gd" id="10_tmcj1"]
-[ext_resource type="Script" uid="uid://bfbmlj7ye1ehj" path="res://Scripts/Components/enemy_health_component.gd" id="11_u2tw5"]
+[ext_resource type="Script" uid="uid://b73j8ntrlsue" path="res://Scripts/State_Machine.gd" id="5_w2xga"]
+[ext_resource type="Script" uid="uid://5rr2omaeff6p" path="res://Scripts/walk_to_player.gd" id="6_4slyf"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xx3wb"]
 atlas = ExtResource("1_vy0uf")
@@ -212,7 +208,8 @@ script = ExtResource("1_5ia6i")
 [node name="Animated Sprite" type="AnimatedSprite2D" parent="." unique_id=483464546]
 position = Vector2(3, -32)
 sprite_frames = SubResource("SpriteFrames_b6em2")
-animation = &"Dead 1"
+animation = &"Walk 1"
+frame_progress = 0.39942157
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=329628457]
 position = Vector2(0, 19)
@@ -226,23 +223,7 @@ initial_state = NodePath("Walk")
 script = ExtResource("6_4slyf")
 
 [node name="Die" type="Node2D" parent="State Machine" unique_id=1650127727]
-script = ExtResource("8_u2tw5")
 
 [node name="Attack" type="Node2D" parent="State Machine" unique_id=861212781]
-script = ExtResource("9_fj6an")
 
 [node name="Hurt" type="Node2D" parent="State Machine" unique_id=1019836651]
-script = ExtResource("10_tmcj1")
-
-[node name="Components" type="Node2D" parent="." unique_id=605125787]
-
-[node name="Health Component" type="Node2D" parent="Components" unique_id=1753913127]
-script = ExtResource("11_u2tw5")
-
-[node name="Timer" type="Timer" parent="." unique_id=976190827]
-one_shot = true
-
-[connection signal="animation_finished" from="Animated Sprite" to="State Machine/Die" method="_on_animated_sprite_animation_finished"]
-[connection signal="die" from="Components/Health Component" to="State Machine/Walk" method="_on_health_component_die"]
-[connection signal="die" from="Components/Health Component" to="State Machine/Attack" method="_on_health_component_die"]
-[connection signal="die" from="Components/Health Component" to="State Machine/Hurt" method="_on_health_component_die"]

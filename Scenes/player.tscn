@@ -2,15 +2,15 @@
 
 [ext_resource type="Texture2D" uid="uid://d35ofbv2ohcav" path="res://Assets/Sprites/Player/Dead.png" id="1_3smsa"]
 [ext_resource type="Script" uid="uid://b38q011ox5vvl" path="res://Scripts/player.gd" id="1_f1ek2"]
-[ext_resource type="Script" uid="uid://cuodk6cig4nag" path="res://Scripts/player_stats.gd" id="1_v0iea"]
+[ext_resource type="Script" uid="uid://cuodk6cig4nag" path="res://Scripts/Stats/player_stats.gd" id="1_v0iea"]
 [ext_resource type="Texture2D" uid="uid://dcufovrfympo0" path="res://Assets/Sprites/Player/Hurt.png" id="2_8erm5"]
 [ext_resource type="Texture2D" uid="uid://btywi67vmkann" path="res://Assets/Sprites/Player/Idle.png" id="3_f1ek2"]
 [ext_resource type="Texture2D" uid="uid://bro650h1qj4od" path="res://Assets/Sprites/Player/Idle_2.png" id="4_tx1dd"]
 [ext_resource type="Texture2D" uid="uid://b3fe5cdaa0l67" path="res://Assets/Sprites/Player/Run.png" id="5_gymyn"]
 [ext_resource type="Texture2D" uid="uid://dahx22uq1q51i" path="res://Assets/Sprites/Player/Walk.png" id="6_pu2lt"]
-[ext_resource type="Script" uid="uid://dpgmuqllln7yg" path="res://Scripts/movement_component.gd" id="8_tx1dd"]
-[ext_resource type="Script" uid="uid://o0lyhcauma6x" path="res://Scripts/health_component.gd" id="9_tx1dd"]
-[ext_resource type="Script" uid="uid://bm1k5m7orvk80" path="res://Scripts/knockback_component.gd" id="10_gymyn"]
+[ext_resource type="Script" uid="uid://dpgmuqllln7yg" path="res://Scripts/Components/movement_component.gd" id="8_tx1dd"]
+[ext_resource type="Script" uid="uid://o0lyhcauma6x" path="res://Scripts/Components/health_component.gd" id="9_tx1dd"]
+[ext_resource type="Script" uid="uid://bm1k5m7orvk80" path="res://Scripts/Components/knockback_component.gd" id="10_gymyn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ukyrk"]
 atlas = ExtResource("1_3smsa")
