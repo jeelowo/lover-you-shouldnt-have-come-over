@@ -10,7 +10,6 @@
 [ext_resource type="Texture2D" uid="uid://dahx22uq1q51i" path="res://Assets/Sprites/Player/Walk.png" id="6_pu2lt"]
 [ext_resource type="Script" uid="uid://dpgmuqllln7yg" path="res://Scripts/Components/movement_component.gd" id="8_tx1dd"]
 [ext_resource type="Script" uid="uid://o0lyhcauma6x" path="res://Scripts/Components/health_component.gd" id="9_tx1dd"]
-[ext_resource type="Script" uid="uid://bm1k5m7orvk80" path="res://Scripts/Components/knockback_component.gd" id="10_gymyn"]
 [ext_resource type="Script" uid="uid://c26x4qybcl8au" path="res://Scenes/player_hurtbox.gd" id="12_pu2lt"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ukyrk"]
@@ -408,7 +407,9 @@ script = ExtResource("1_f1ek2")
 [node name="Animated Sprite" type="AnimatedSprite2D" parent="." unique_id=893593177]
 position = Vector2(3, -45)
 sprite_frames = SubResource("SpriteFrames_cvnsp")
-animation = &"Idle"
+animation = &"Hurt"
+frame = 3
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=314876745]
 position = Vector2(-0.5, 0)
@@ -421,9 +422,6 @@ script = ExtResource("8_tx1dd")
 
 [node name="Health Component" type="Node2D" parent="Components" unique_id=1679241257]
 script = ExtResource("9_tx1dd")
-
-[node name="Knockback Component" type="Node2D" parent="Components" unique_id=739367650]
-script = ExtResource("10_gymyn")
 
 [node name="Player Stats" type="Node2D" parent="." unique_id=1223689273]
 script = ExtResource("1_v0iea")
@@ -445,3 +443,4 @@ position_smoothing_enabled = true
 one_shot = true
 
 [connection signal="animation_finished" from="Animated Sprite" to="Components/Movement Component" method="_on_animated_sprite_animation_finished"]
+[connection signal="damaged" from="Components/Health Component" to="Components/Health Component" method="_on_damaged"]

@@ -16,7 +16,7 @@ func Enter():
 
 	player = get_tree().get_first_node_in_group("Player")
 	animated_sprite.animation_finished.connect(_on_animated_sprite_animation_finished)
-	
+
 	knockbacked = false
 	initial_pos = zombie.global_position
 	animated_sprite.play("Hurt 1")

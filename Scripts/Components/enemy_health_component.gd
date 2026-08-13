@@ -3,7 +3,6 @@ extends Node2D
 @onready var zombie_stats: Node2D = $"../../Zombie Stats"
 
 var current_hp : float
-var invincible : bool
 
 signal damaged(amount: float)
 signal healed(amount: float)
@@ -11,7 +10,6 @@ signal die
 
 func _ready() -> void:
 	current_hp = zombie_stats.max_hp
-	invincible = false
 
 #@onready var timer: Timer = $"../../Timer"
 # for testing
@@ -27,9 +25,6 @@ func increase_max_hp(amount: float):
 	print("max hp is now: " + str(zombie_stats.max_hp))
 
 func take_damage(amount: float):
-	if invincible:
-		return
-
 	current_hp = max(current_hp - amount, 0)
 	damaged.emit(amount)
 	print("current_hp: " + str(current_hp))

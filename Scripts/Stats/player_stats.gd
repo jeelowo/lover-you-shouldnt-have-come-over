@@ -1,9 +1,9 @@
 extends Node2D
 
-@export var movement_speed := 100
-@export var max_hp := 100
+@export var movement_speed := 100 #done
+@export var max_hp := 100 #done
 @export var pickup_radius := 50
-@export var armor := 0
+@export var armor := 1 # done
 @export var crit_chance := 5.0
 @export var crit_damage_modifier := 2.0
 @export var xp := 0
