@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var enemy_stats: Node2D = $"../../../Enemy Stats"
+@onready var zombie_stats: Node2D = $"../../Zombie Stats"
 
 var current_hp : float
 
@@ -9,20 +9,21 @@ signal healed(amount: float)
 signal die
 
 func _ready() -> void:
-	current_hp = enemy_stats.max_hp
+	current_hp = zombie_stats.max_hp
+	timer.start(3)
 
-#@onready var timer: Timer = $"../../Timer"
+@onready var timer: Timer = $"../../Timer"
 # for testing
-#func _process(delta: float) -> void:
-#	if timer.is_stopped():
-#		take_damage(20)
-#		timer.start(1)
+func _process(_delta: float) -> void:
+	if timer.is_stopped():
+		take_damage(20)
+		timer.start(2)
 
 # Custom Functions
 func increase_max_hp(amount: float):
-	enemy_stats.max_hp += amount
+	zombie_stats.max_hp += amount
 	current_hp += amount
-	print("max hp is now: " + str(enemy_stats.max_hp))
+	print("max hp is now: " + str(zombie_stats.max_hp))
 
 func take_damage(amount: float):
 	current_hp = max(current_hp - amount, 0)
@@ -34,9 +35,9 @@ func take_damage(amount: float):
 		die.emit()
 
 func heal(amount: float):
-	current_hp = min(current_hp + amount, enemy_stats.max_hp)
+	current_hp = min(current_hp + amount, zombie_stats.max_hp)
 	healed.emit(amount)
 	print("current_hp: " + str(current_hp))
 
-	if current_hp > enemy_stats.max_hp:
-		current_hp = enemy_stats.max_hp
+	if current_hp > zombie_stats.max_hp:
+		current_hp = zombie_stats.max_hp

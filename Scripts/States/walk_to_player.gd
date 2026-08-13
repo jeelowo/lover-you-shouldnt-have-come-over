@@ -2,7 +2,7 @@ extends State
 class_name WalkToPlayer
 
 @onready var animated_sprite: AnimatedSprite2D = $"../../Animated Sprite"
-@onready var enemy_stats: Node2D = $"../../../Enemy Stats"
+@onready var zombie_stats: Node2D = $"../../Zombie Stats"
 
 var player : CharacterBody2D
 var zombie : CharacterBody2D
@@ -15,9 +15,9 @@ func Enter():
 	zombie = get_parent().get_parent()
 
 func Physics_Update(delta: float):
-	zombie.move_and_slide()
 	direction = (player.global_position - zombie.global_position).normalized()
-	zombie.velocity = direction * 10 * delta * enemy_stats.movement_speed
+	zombie.velocity = direction * zombie_stats.movement_speed
+	zombie.move_and_slide()
 	animated_sprite.play("Walk 1")
 
 	if zombie.velocity.x < 0:
@@ -25,5 +25,10 @@ func Physics_Update(delta: float):
 	else:
 		animated_sprite.flip_h = false
 
+# Transitions
 func _on_health_component_die() -> void:
 	Transitioned.emit(self, "Die")
+
+func _on_health_component_damaged(_amount: float) -> void:
+	print("bap")
+	Transitioned.emit(self, "Hurt")

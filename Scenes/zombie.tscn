@@ -11,6 +11,8 @@
 [ext_resource type="Script" uid="uid://dapsl1dc3f7fb" path="res://Scripts/States/attack_player.gd" id="9_fj6an"]
 [ext_resource type="Script" uid="uid://dnxbw3cqhjuom" path="res://Scripts/States/hurt.gd" id="10_tmcj1"]
 [ext_resource type="Script" uid="uid://bfbmlj7ye1ehj" path="res://Scripts/Components/enemy_health_component.gd" id="11_u2tw5"]
+[ext_resource type="Script" uid="uid://bm1k5m7orvk80" path="res://Scripts/Components/knockback_component.gd" id="12_fj6an"]
+[ext_resource type="Script" uid="uid://b4afxl0x44abe" path="res://Scripts/Stats/zombie_stats.gd" id="13_tmcj1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xx3wb"]
 atlas = ExtResource("1_vy0uf")
@@ -239,10 +241,17 @@ script = ExtResource("10_tmcj1")
 [node name="Health Component" type="Node2D" parent="Components" unique_id=1753913127]
 script = ExtResource("11_u2tw5")
 
+[node name="Knockback Component" type="Node2D" parent="Components" unique_id=1376213575]
+script = ExtResource("12_fj6an")
+
+[node name="Zombie Stats" type="Node2D" parent="." unique_id=860716901]
+script = ExtResource("13_tmcj1")
+
 [node name="Timer" type="Timer" parent="." unique_id=976190827]
 one_shot = true
 
 [connection signal="animation_finished" from="Animated Sprite" to="State Machine/Die" method="_on_animated_sprite_animation_finished"]
+[connection signal="damaged" from="Components/Health Component" to="State Machine/Walk" method="_on_health_component_damaged"]
 [connection signal="die" from="Components/Health Component" to="State Machine/Walk" method="_on_health_component_die"]
 [connection signal="die" from="Components/Health Component" to="State Machine/Attack" method="_on_health_component_die"]
 [connection signal="die" from="Components/Health Component" to="State Machine/Hurt" method="_on_health_component_die"]
