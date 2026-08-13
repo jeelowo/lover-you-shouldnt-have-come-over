@@ -157,10 +157,16 @@ animations = [{
 "texture": SubResource("AtlasTexture_jrf8t")
 }, {
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_jrf8t")
+}, {
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_jgnkq")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_u174i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ofjqa")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ofjqa")
@@ -214,9 +220,11 @@ script = ExtResource("1_5ia6i")
 [node name="Animated Sprite" type="AnimatedSprite2D" parent="." unique_id=483464546]
 position = Vector2(3, -32)
 sprite_frames = SubResource("SpriteFrames_b6em2")
-animation = &"Dead 1"
+animation = &"Hurt 1"
+frame = 5
+frame_progress = 1.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=329628457]
+[node name="Hurtbox" type="CollisionShape2D" parent="." unique_id=329628457]
 position = Vector2(0, 19)
 shape = SubResource("CapsuleShape2D_b6em2")
 
@@ -250,7 +258,6 @@ script = ExtResource("13_tmcj1")
 [node name="Timer" type="Timer" parent="." unique_id=976190827]
 one_shot = true
 
-[connection signal="animation_finished" from="Animated Sprite" to="State Machine/Die" method="_on_animated_sprite_animation_finished"]
 [connection signal="damaged" from="Components/Health Component" to="State Machine/Walk" method="_on_health_component_damaged"]
 [connection signal="die" from="Components/Health Component" to="State Machine/Walk" method="_on_health_component_die"]
 [connection signal="die" from="Components/Health Component" to="State Machine/Attack" method="_on_health_component_die"]

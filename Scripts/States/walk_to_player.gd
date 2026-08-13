@@ -14,7 +14,7 @@ func Enter():
 	player = get_tree().get_first_node_in_group("Player")
 	zombie = get_parent().get_parent()
 
-func Physics_Update(delta: float):
+func Physics_Update(_delta: float):
 	direction = (player.global_position - zombie.global_position).normalized()
 	zombie.velocity = direction * zombie_stats.movement_speed
 	zombie.move_and_slide()
@@ -30,5 +30,4 @@ func _on_health_component_die() -> void:
 	Transitioned.emit(self, "Die")
 
 func _on_health_component_damaged(_amount: float) -> void:
-	print("bap")
 	Transitioned.emit(self, "Hurt")
