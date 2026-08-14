@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://bjrrf60fc5fc6"]
 
 [ext_resource type="Script" uid="uid://bqfngrvlgulec" path="res://Scripts/Stats/ember_stats.gd" id="1_7cv17"]
-[ext_resource type="Script" uid="uid://dsohp8u3rc2ha" path="res://weapon_manager.gd" id="1_8u6fj"]
-[ext_resource type="Script" uid="uid://din2r6knyq5yj" path="res://ember_bullet.gd" id="2_87sfo"]
+[ext_resource type="Script" uid="uid://dsohp8u3rc2ha" path="res://Scripts/Weapons/weapon_manager.gd" id="1_8u6fj"]
+[ext_resource type="Script" uid="uid://din2r6knyq5yj" path="res://Scripts/Weapons/ember_bullet.gd" id="2_87sfo"]
 [ext_resource type="Texture2D" uid="uid://bx0fgjf2j3hyd" path="res://Assets/Sprites/Weapon/240.png" id="2_o1452"]
 [ext_resource type="Texture2D" uid="uid://chrlxbj7os23m" path="res://Assets/Sprites/Weapon/Fire Weapons.png" id="3_87sfo"]
 

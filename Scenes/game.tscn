@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://bjnq55uu1aes2" path="res://Scenes/background.tscn" id="1_qxrlw"]
 [ext_resource type="PackedScene" uid="uid://byh6adbr1glxv" path="res://Scenes/zombie.tscn" id="2_3dryh"]
 [ext_resource type="PackedScene" uid="uid://bbqneleiu8nbk" path="res://Scenes/audio_manager.tscn" id="3_wrm1d"]
+[ext_resource type="PackedScene" uid="uid://bjrrf60fc5fc6" path="res://Scenes/weapon_manager.tscn" id="5_wowpa"]
 
 [node name="Game" type="Node2D" unique_id=1215447500]
 
@@ -22,3 +23,6 @@ z_index = 1
 position = Vector2(-150, -104)
 
 [node name="Audio Manager" parent="." unique_id=1472686142 instance=ExtResource("3_wrm1d")]
+
+[node name="Weapon Manager" parent="." unique_id=269121661 instance=ExtResource("5_wowpa")]
+position = Vector2(-367, -25)
