@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bjrrf60fc5fc6"]
 
 [ext_resource type="Script" uid="uid://bqfngrvlgulec" path="res://Scripts/Stats/ember_stats.gd" id="1_7cv17"]
+[ext_resource type="Script" uid="uid://dsohp8u3rc2ha" path="res://weapon_manager.gd" id="1_8u6fj"]
 [ext_resource type="Script" uid="uid://din2r6knyq5yj" path="res://ember_bullet.gd" id="2_87sfo"]
 [ext_resource type="Texture2D" uid="uid://bx0fgjf2j3hyd" path="res://Assets/Sprites/Weapon/240.png" id="2_o1452"]
 [ext_resource type="Texture2D" uid="uid://chrlxbj7os23m" path="res://Assets/Sprites/Weapon/Fire Weapons.png" id="3_87sfo"]
@@ -90,6 +91,7 @@ radius = 6.0
 size = Vector2(1900, 1200)
 
 [node name="Weapon Manager" type="Node2D" unique_id=269121661]
+script = ExtResource("1_8u6fj")
 
 [node name="Ember Shard" type="Node2D" parent="." unique_id=1436599268]
 
@@ -116,8 +118,10 @@ region_rect = Rect2(52.971, 4.96, 6, 6)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ember Shard/Ember Bullet" unique_id=197223363]
 shape = SubResource("CircleShape2D_g4v7s")
 
-[node name="Area2D" type="Area2D" parent="Ember Shard" unique_id=230662747]
+[node name="Max Range" type="Area2D" parent="Ember Shard" unique_id=230662747]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ember Shard/Area2D" unique_id=571243658]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ember Shard/Max Range" unique_id=571243658]
 position = Vector2(1, 1.5)
 shape = SubResource("RectangleShape2D_g4v7s")
+
+[connection signal="area_exited" from="Ember Shard/Max Range" to="." method="_on_max_range_area_exited"]

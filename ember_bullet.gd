@@ -4,7 +4,7 @@ var target : CharacterBody2D
 var direction : Vector2
 
 func _ready() -> void:
-	add_to_group("Bullet")
+	add_to_group("Projectile")
 
 	target = get_tree().get_first_node_in_group("Player")
 
