@@ -88,7 +88,7 @@ animations = [{
 radius = 6.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
-size = Vector2(1900, 1200)
+size = Vector2(1400, 900)
 
 [node name="Weapon Manager" type="Node2D" unique_id=269121661]
 script = ExtResource("1_8u6fj")
@@ -97,31 +97,38 @@ script = ExtResource("1_8u6fj")
 
 [node name="Projectiles" type="Node2D" parent="Ember Shard" unique_id=1988415838]
 
-[node name="Ember Stats" type="Node2D" parent="Ember Shard" unique_id=507880259]
-script = ExtResource("1_7cv17")
-
-[node name="Ember Bullet" type="Area2D" parent="Ember Shard" unique_id=572567965]
+[node name="Ember Bullet" type="Area2D" parent="Ember Shard/Projectiles" unique_id=572567965]
+collision_layer = 2
+collision_mask = 2
 script = ExtResource("2_87sfo")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Ember Shard/Ember Bullet" unique_id=23366932]
-position = Vector2(-32, -1)
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Ember Shard/Projectiles/Ember Bullet" unique_id=23366932]
+position = Vector2(-10.305, -0.94)
 rotation = -1.5707964
+scale = Vector2(0.6, 0.6)
 sprite_frames = SubResource("SpriteFrames_g4v7s")
+autoplay = "default"
 frame_progress = 0.31937763
 
-[node name="Sprite2D" type="Sprite2D" parent="Ember Shard/Ember Bullet" unique_id=1693737224]
+[node name="Sprite2D" type="Sprite2D" parent="Ember Shard/Projectiles/Ember Bullet" unique_id=1693737224]
 scale = Vector2(2, 2)
 texture = ExtResource("3_87sfo")
 region_enabled = true
 region_rect = Rect2(52.971, 4.96, 6, 6)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ember Shard/Ember Bullet" unique_id=197223363]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ember Shard/Projectiles/Ember Bullet" unique_id=197223363]
 shape = SubResource("CircleShape2D_g4v7s")
 
+[node name="Ember Stats" type="Node2D" parent="Ember Shard" unique_id=507880259]
+script = ExtResource("1_7cv17")
+
 [node name="Max Range" type="Area2D" parent="Ember Shard" unique_id=230662747]
+collision_layer = 2
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ember Shard/Max Range" unique_id=571243658]
 position = Vector2(1, 1.5)
 shape = SubResource("RectangleShape2D_g4v7s")
 
 [connection signal="area_exited" from="Ember Shard/Max Range" to="." method="_on_max_range_area_exited"]
+[connection signal="body_entered" from="Ember Shard/Max Range" to="." method="_on_max_range_body_entered"]

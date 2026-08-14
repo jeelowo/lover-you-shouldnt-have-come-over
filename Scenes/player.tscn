@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dtimsjpi7k33j"]
 
 [ext_resource type="Texture2D" uid="uid://d35ofbv2ohcav" path="res://Assets/Sprites/Player/Dead.png" id="1_3smsa"]
-[ext_resource type="Script" uid="uid://b38q011ox5vvl" path="res://Scripts/player.gd" id="1_f1ek2"]
+[ext_resource type="Script" uid="uid://b38q011ox5vvl" path="res://Scripts/Entities/player.gd" id="1_f1ek2"]
 [ext_resource type="Script" uid="uid://cuodk6cig4nag" path="res://Scripts/Stats/player_stats.gd" id="1_v0iea"]
 [ext_resource type="Texture2D" uid="uid://dcufovrfympo0" path="res://Assets/Sprites/Player/Hurt.png" id="2_8erm5"]
 [ext_resource type="Texture2D" uid="uid://btywi67vmkann" path="res://Assets/Sprites/Player/Idle.png" id="3_f1ek2"]
@@ -10,7 +10,6 @@
 [ext_resource type="Texture2D" uid="uid://dahx22uq1q51i" path="res://Assets/Sprites/Player/Walk.png" id="6_pu2lt"]
 [ext_resource type="Script" uid="uid://dpgmuqllln7yg" path="res://Scripts/Components/movement_component.gd" id="8_tx1dd"]
 [ext_resource type="Script" uid="uid://o0lyhcauma6x" path="res://Scripts/Components/health_component.gd" id="9_tx1dd"]
-[ext_resource type="Script" uid="uid://c26x4qybcl8au" path="res://Scenes/player_hurtbox.gd" id="12_pu2lt"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ukyrk"]
 atlas = ExtResource("1_3smsa")
@@ -398,6 +397,8 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b6em2"]
 size = Vector2(17, 38)
 
+[sub_resource type="GDScript" id="GDScript_tx1dd"]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bge8u"]
 size = Vector2(19, 67.5)
 
@@ -426,10 +427,8 @@ script = ExtResource("9_tx1dd")
 [node name="Player Stats" type="Node2D" parent="." unique_id=1223689273]
 script = ExtResource("1_v0iea")
 
-[node name="Weapon Manager" type="Node2D" parent="." unique_id=1161468509]
-
 [node name="Hurtbox" type="Area2D" parent="." unique_id=955989400]
-script = ExtResource("12_pu2lt")
+script = SubResource("GDScript_tx1dd")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=980744594]
 position = Vector2(-0.5, -15.25)

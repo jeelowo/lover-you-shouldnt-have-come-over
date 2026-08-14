@@ -15,14 +15,14 @@ scale = Vector2(2, 2)
 z_index = 1
 position = Vector2(-252, -33)
 
+[node name="Weapon Manager" parent="." unique_id=269121661 instance=ExtResource("5_wowpa")]
+position = Vector2(-260, -28)
+
 [node name="Enemy Manager" type="Node2D" parent="." unique_id=822169317]
 y_sort_enabled = true
 
 [node name="Zombie" parent="Enemy Manager" unique_id=768690002 instance=ExtResource("2_3dryh")]
 z_index = 1
-position = Vector2(-150, -104)
+position = Vector2(369, -68)
 
 [node name="Audio Manager" parent="." unique_id=1472686142 instance=ExtResource("3_wrm1d")]
-
-[node name="Weapon Manager" parent="." unique_id=269121661 instance=ExtResource("5_wowpa")]
-position = Vector2(-367, -25)
