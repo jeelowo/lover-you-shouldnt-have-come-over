@@ -12,7 +12,8 @@ func _ready() -> void:
 	player = get_tree().get_first_node_in_group("Player")
 	global_position = player.global_position
 	direction = (zombie.global_position - global_position).normalized()
-	global_rotation_degrees = direction.angle()
+	self.rotation = direction.angle()
+	print(global_rotation_degrees)
 
 func _process(delta: float) -> void:
 	global_position += ember_stats.proj_speed * delta * direction
