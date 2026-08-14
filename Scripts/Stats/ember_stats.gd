@@ -1,6 +1,6 @@
 extends Node
 
-@export var damage := 40.0
+@export var damage := 40.0 #done
 @export var cooldown_reduction := 0.5 #done
 @export var proj_speed := 180 #done
 @export var proj_count := 1

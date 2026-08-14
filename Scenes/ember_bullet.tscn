@@ -91,7 +91,7 @@ collision_mask = 2
 script = ExtResource("1_b7t4g")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=933806800]
-position = Vector2(-20, -1)
+position = Vector2(-10, -1)
 rotation = -1.5707964
 scale = Vector2(0.6, 0.6)
 sprite_frames = SubResource("SpriteFrames_g4v7s")
@@ -106,3 +106,5 @@ region_rect = Rect2(52.971, 4.96, 6, 6)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=8675055]
 shape = SubResource("CircleShape2D_g4v7s")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

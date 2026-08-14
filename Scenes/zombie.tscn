@@ -11,6 +11,7 @@
 [ext_resource type="Script" uid="uid://dnxbw3cqhjuom" path="res://Scripts/States/hurt.gd" id="10_tmcj1"]
 [ext_resource type="Script" uid="uid://bfbmlj7ye1ehj" path="res://Scripts/Components/enemy_health_component.gd" id="11_u2tw5"]
 [ext_resource type="Script" uid="uid://bm1k5m7orvk80" path="res://Scripts/Components/knockback_component.gd" id="12_fj6an"]
+[ext_resource type="Script" uid="uid://iuaii575gydd" path="res://Scripts/Entities/zombie_hurtbox.gd" id="13_aw8xw"]
 [ext_resource type="Script" uid="uid://b4afxl0x44abe" path="res://Scripts/Stats/zombie_stats.gd" id="13_tmcj1"]
 [ext_resource type="Script" uid="uid://cgwl00yg6u33a" path="res://Scripts/Entities/hitbox.gd" id="14_aw8xw"]
 
@@ -261,6 +262,7 @@ position = Vector2(-1, 15)
 [node name="Hurtbox" type="Area2D" parent="Boxes" unique_id=682858466]
 collision_layer = 2
 collision_mask = 2
+script = ExtResource("13_aw8xw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Boxes/Hurtbox" unique_id=165484892]
 position = Vector2(1, -14)
