@@ -4,6 +4,7 @@ extends Area2D
 @onready var player: CharacterBody2D
 @onready var zombie: CharacterBody2D = $"../../../../Enemy Manager/Zombie"
 @onready var max_range: Area2D = $"../../Max Range"
+@onready var weapon_manager: Node2D = $"../../../"
 
 var direction : Vector2
 
@@ -21,4 +22,5 @@ func _process(delta: float) -> void:
 func _on_area_entered(area: Area2D) -> void:
 	if area.is_in_group("Zombie"):
 		var health = area.get_node("../../Components/Health Component")
-		health.take_damage(ember_stats.damage)
+		print(str(weapon_manager.roll_crit(ember_stats.damage, ember_stats.crit_dmg ,ember_stats.crit_chance)))
+		health.take_damage(1)

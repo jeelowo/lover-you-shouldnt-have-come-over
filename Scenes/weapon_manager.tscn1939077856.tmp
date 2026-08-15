@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://bjrrf60fc5fc6"]
+
+[ext_resource type="Script" uid="uid://bqfngrvlgulec" path="res://Scripts/Stats/ember_stats.gd" id="1_7cv17"]
+[ext_resource type="Script" uid="uid://dsohp8u3rc2ha" path="res://Scripts/Weapons/weapon_manager.gd" id="1_8u6fj"]
+[ext_resource type="Script" uid="uid://b38ehj88qiihu" path="res://Scripts/Weapons/ember_shard.gd" id="2_mqwab"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
+size = Vector2(1400, 900)
+
+[node name="Weapon Manager" type="Node2D" unique_id=269121661]
+script = ExtResource("1_8u6fj")
+
+[node name="Ember Shard" type="Node2D" parent="." unique_id=1436599268]
+script = ExtResource("2_mqwab")
+
+[node name="Projectiles" type="Node2D" parent="Ember Shard" unique_id=1988415838]
+
+[node name="Ember Stats" type="Node2D" parent="Ember Shard" unique_id=507880259]
+script = ExtResource("1_7cv17")
+
+[node name="Max Range" type="Area2D" parent="Ember Shard" unique_id=230662747]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ember Shard/Max Range" unique_id=571243658]
+position = Vector2(1, 1.5)
+shape = SubResource("RectangleShape2D_g4v7s")
+
+[node name="Timer" type="Timer" parent="Ember Shard" unique_id=598255310]
+one_shot = true
+
+[connection signal="area_exited" from="Ember Shard/Max Range" to="." method="_on_max_range_area_exited"]
+[connection signal="body_entered" from="Ember Shard/Max Range" to="." method="_on_max_range_body_entered"]
