@@ -2,25 +2,57 @@ extends Area2D
 
 @onready var ember_stats: Node2D = $"../../Ember Stats"
 @onready var player: CharacterBody2D
-@onready var zombie: CharacterBody2D = $"../../../../Enemy Manager/Zombie"
-@onready var max_range: Area2D = $"../../Max Range"
 @onready var weapon_manager: Node2D = $"../../../"
 
 var direction : Vector2
+var random_direction : Vector2
+var current_target : Node2D
 
 func _ready() -> void:
 	add_to_group("Projectile")
 
 	player = get_tree().get_first_node_in_group("Player")
 	global_position = player.global_position
-	direction = (zombie.global_position - global_position).normalized()
-	self.rotation = direction.angle()
+	direction = Vector2.from_angle(randf() * TAU)
 
 func _process(delta: float) -> void:
+	weapon_manager.body_in_range = weapon_manager.body_in_range.filter(
+		is_instance_valid
+	)
+
+	if (!weapon_manager.body_in_range.is_empty() and 
+		current_target != weapon_manager.body_in_range[0]):
+
+		current_target = weapon_manager.body_in_range[0]
+
+		if !is_instance_valid(current_target):
+			weapon_manager.body_in_range.erase(current_target)
+			current_target = null
+			return
+
+		var target_health_component = current_target.get_node(
+			"Components/Health Component"
+		)
+
+		if target_health_component.current_hp <= 0:
+			weapon_manager.body_in_range.erase(current_target)
+			current_target = null
+			return
+
+		if weapon_manager.body_in_range.is_empty():
+			random_direction = Vector2(randf(), randf()).normalized()
+			direction = random_direction
+			print("no body in range")
+
+		if !weapon_manager.body_in_range.is_empty():
+			direction = (current_target.global_position - global_position).normalized()
+
+		self.rotation = direction.angle()
+
 	global_position += ember_stats.proj_speed * delta * direction
 
 func _on_area_entered(area: Area2D) -> void:
 	if area.is_in_group("Zombie"):
 		var health = area.get_node("../../Components/Health Component")
-		print(str(weapon_manager.roll_crit(ember_stats.damage, ember_stats.crit_dmg ,ember_stats.crit_chance)))
-		health.take_damage(1)
+		health.take_damage(weapon_manager.roll_crit(ember_stats.damage, 
+		ember_stats.crit_dmg ,ember_stats.crit_chance))
