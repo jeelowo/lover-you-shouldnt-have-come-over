@@ -9,7 +9,7 @@ const ZOMBIE_SCENE = preload("res://Scenes/zombie.tscn")
 func _ready() -> void:
 	timer.start(spawn_cooldown)
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if timer.is_stopped():
 		var zombie_instance = ZOMBIE_SCENE.instantiate()
 		spawn_loc.progress_ratio = randf()
