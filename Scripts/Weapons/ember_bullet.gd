@@ -20,19 +20,28 @@ func _ready() -> void:
 		is_instance_valid
 	)
 
-	# Remove enemies that are already dead
-	for enemy in weapon_manager.body_in_range:
-		var health = enemy.get_node("Components/Health Component")
-
-		if health.current_hp <= 0:
-			weapon_manager.body_in_range.erase(enemy)
-
 	if !weapon_manager.body_in_range.is_empty():
-		current_target = weapon_manager.body_in_range[0]
+		var closest_distance := INF
+		var health
 
-		direction = (
-			current_target.global_position - global_position
-		).normalized()
+		# Find closest body and remove dead enemy
+		for enemy in weapon_manager.body_in_range:
+			health = enemy.get_node("Components/Health Component")
+
+			# Check if dead
+			if health.current_hp <= 0:
+				continue
+
+			# Find closest enemy
+			if (global_position.distance_to(enemy.global_position) < closest_distance):
+				closest_distance = global_position.distance_to(enemy.global_position)
+				current_target = enemy
+
+		health = current_target.get_node("Components/Health Component")
+		if health.current_hp <= 0:
+			direction = Vector2.from_angle(randf() * TAU)
+		else:
+			direction = (current_target.global_position - global_position).normalized()
 	else:
 		direction = Vector2.from_angle(randf() * TAU)
 
