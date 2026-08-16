@@ -3,10 +3,10 @@ extends Area2D
 @onready var ember_stats: Node2D = $"../../Ember Stats"
 @onready var player: CharacterBody2D
 @onready var weapon_manager: Node2D = $"../../../"
+@onready var max_range: Area2D = $"../../Max Range"
 
 var direction: Vector2
 var current_target: Node2D
-
 
 func _ready() -> void:
 	add_to_group("Projectile")
@@ -16,6 +16,8 @@ func _ready() -> void:
 
 	# Random direction if there are no enemies to target
 	direction = Vector2.from_angle(randf() * TAU)
+
+	max_range.global_position = global_position
 
 
 func _process(delta: float) -> void:

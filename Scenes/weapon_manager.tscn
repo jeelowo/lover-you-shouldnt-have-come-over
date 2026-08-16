@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://bqfngrvlgulec" path="res://Scripts/Stats/ember_stats.gd" id="1_7cv17"]
 [ext_resource type="Script" uid="uid://dsohp8u3rc2ha" path="res://Scripts/Weapons/weapon_manager.gd" id="1_8u6fj"]
 [ext_resource type="Script" uid="uid://b38ehj88qiihu" path="res://Scripts/Weapons/ember_shard.gd" id="2_mqwab"]
-[ext_resource type="PackedScene" uid="uid://bh6rbofyue2rr" path="res://Scenes/ember_bullet.tscn" id="3_dde7e"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
 size = Vector2(1400, 900)
@@ -15,8 +14,6 @@ script = ExtResource("1_8u6fj")
 script = ExtResource("2_mqwab")
 
 [node name="Projectiles" type="Node2D" parent="Ember Shard" unique_id=1988415838]
-
-[node name="Ember Bullet" parent="Ember Shard/Projectiles" unique_id=2100648930 instance=ExtResource("3_dde7e")]
 
 [node name="Ember Stats" type="Node2D" parent="Ember Shard" unique_id=507880259]
 script = ExtResource("1_7cv17")
