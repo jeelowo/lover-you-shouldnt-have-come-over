@@ -8,7 +8,6 @@ extends Area2D
 var direction: Vector2
 var current_target: Node2D
 
-
 func _ready() -> void:
 	add_to_group("Projectile")
 

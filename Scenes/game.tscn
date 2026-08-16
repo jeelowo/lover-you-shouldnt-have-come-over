@@ -2,7 +2,6 @@
 
 [ext_resource type="PackedScene" uid="uid://dtimsjpi7k33j" path="res://Scenes/player.tscn" id="1_ebmjs"]
 [ext_resource type="PackedScene" uid="uid://bjnq55uu1aes2" path="res://Scenes/background.tscn" id="1_qxrlw"]
-[ext_resource type="PackedScene" uid="uid://byh6adbr1glxv" path="res://Scenes/zombie.tscn" id="2_3dryh"]
 [ext_resource type="PackedScene" uid="uid://bbqneleiu8nbk" path="res://Scenes/audio_manager.tscn" id="3_wrm1d"]
 [ext_resource type="Script" uid="uid://bc3odoea6gwu8" path="res://Scenes/enemy_manager.gd" id="4_1l0tm"]
 [ext_resource type="Script" uid="uid://di2tre74agsa" path="res://Scripts/xp_manager.gd" id="5_i6g32"]
@@ -10,7 +9,7 @@
 
 [sub_resource type="Curve2D" id="Curve2D_1l0tm"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 308.02698, 303.00003, 0, 0, 0, 0, -870.00006, 303.00003, 0, 0, 0, 0, -870, -365, 0, 0, 0, 0, 308.02698, -364.99997, 0, 0, 0, 0, 308.02698, 303.00003)
+"points": PackedVector2Array(0, 0, 0, 0, -281.50272, 158.05531, 0, 0, 0, 0, 279.99866, 161.4908, 0, 0, 0, 0, 280.5, -158.5, 0, 0, 0, 0, -280.5, -157, 0, 0, 0, 0, -281.50272, 158.05531)
 }
 point_count = 5
 
@@ -21,7 +20,6 @@ scale = Vector2(2, 2)
 
 [node name="Player" parent="." unique_id=1776890117 instance=ExtResource("1_ebmjs")]
 z_index = 1
-position = Vector2(-252, -33)
 
 [node name="Weapon Manager" parent="." unique_id=269121661 instance=ExtResource("5_wowpa")]
 position = Vector2(-260, -28)
@@ -30,24 +28,19 @@ position = Vector2(-260, -28)
 y_sort_enabled = true
 script = ExtResource("4_1l0tm")
 
-[node name="Zombie" parent="Enemy Manager" unique_id=768690002 instance=ExtResource("2_3dryh")]
-z_index = 1
-position = Vector2(369, -68)
-
-[node name="Spawn Loc" type="Path2D" parent="Enemy Manager" unique_id=719349529]
-position = Vector2(16.085886, -1.3608246)
-scale = Vector2(0.9736618, 1.004491)
+[node name="Spawn Path" type="Path2D" parent="Enemy Manager" unique_id=719349529]
+scale = Vector2(2.26, 2.26)
 curve = SubResource("Curve2D_1l0tm")
 
-[node name="PathFollow2D" type="PathFollow2D" parent="Enemy Manager/Spawn Loc" unique_id=648736302]
-position = Vector2(-870, -346.48883)
-rotation = -1.5707963
+[node name="Spawn Location" type="PathFollow2D" parent="Enemy Manager/Spawn Path" unique_id=648736302]
 progress = 1827.5674
 
 [node name="XP Manager" type="Node2D" parent="." unique_id=265907429]
+unique_name_in_owner = true
 script = ExtResource("5_i6g32")
 
 [node name="Audio Manager" parent="." unique_id=1472686142 instance=ExtResource("3_wrm1d")]
+position = Vector2(-259, 2)
 
 [node name="Timer" type="Timer" parent="." unique_id=821793110]
 one_shot = true
