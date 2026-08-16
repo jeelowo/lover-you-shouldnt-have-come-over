@@ -435,7 +435,8 @@ script = SubResource("GDScript_tx1dd")
 position = Vector2(-0.5, -15.25)
 shape = SubResource("RectangleShape2D_bge8u")
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=845237107]
+[node name="Camera" type="Camera2D" parent="." unique_id=845237107]
+unique_name_in_owner = true
 zoom = Vector2(1.5, 1.5)
 position_smoothing_enabled = true
 

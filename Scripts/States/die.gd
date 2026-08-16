@@ -16,7 +16,6 @@ func Enter():
 	animated_sprite.play("Dead 1")
 	zombie.velocity = Vector2.ZERO
 	set_deferred("collision_shape_2d.disabled", true)
-	
 
 func Exit():
 	animated_sprite.animation_finished.disconnect(_on_animated_sprite_animation_finished)
