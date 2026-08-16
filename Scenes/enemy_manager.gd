@@ -4,7 +4,7 @@ extends Node2D
 @onready var spawn_loc: PathFollow2D = $"Spawn Loc/PathFollow2D"
 
 const ZOMBIE_SCENE = preload("res://Scenes/zombie.tscn")
-var spawn_cooldown := 0.1
+@export var spawn_cooldown := 0.1
 
 func _ready() -> void:
 	timer.start(spawn_cooldown)

@@ -5,7 +5,6 @@ class_name Die
 @onready var timer: Timer = $"../../Timer"
 @onready var collision_shape_2d: CollisionShape2D = $"../../CollisionShape2D"
 
-
 var zombie : CharacterBody2D
 
 func Enter():
@@ -15,12 +14,13 @@ func Enter():
 	zombie = get_parent().get_parent()
 	animated_sprite.play("Dead 1")
 	zombie.velocity = Vector2.ZERO
-	set_deferred("collision_shape_2d.disabled", true)
 
 func Exit():
 	animated_sprite.animation_finished.disconnect(_on_animated_sprite_animation_finished)
 
 func _on_animated_sprite_animation_finished() -> void:
+	collision_shape_2d.disabled = true
+	print(collision_shape_2d.disabled)
 	timer.start(2)
 	await timer.timeout
 	zombie.queue_free()

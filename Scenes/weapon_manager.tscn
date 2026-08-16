@@ -4,8 +4,8 @@
 [ext_resource type="Script" uid="uid://dsohp8u3rc2ha" path="res://Scripts/Weapons/weapon_manager.gd" id="1_8u6fj"]
 [ext_resource type="Script" uid="uid://b38ehj88qiihu" path="res://Scripts/Weapons/ember_shard.gd" id="2_mqwab"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
-size = Vector2(1400, 900)
+[sub_resource type="CircleShape2D" id="CircleShape2D_b7t4g"]
+radius = 442.387
 
 [node name="Weapon Manager" type="Node2D" unique_id=269121661]
 script = ExtResource("1_8u6fj")
@@ -17,14 +17,14 @@ script = ExtResource("2_mqwab")
 
 [node name="Ember Stats" type="Node2D" parent="Ember Shard" unique_id=507880259]
 script = ExtResource("1_7cv17")
+crit_chance = 0.1
 
 [node name="Max Range" type="Area2D" parent="Ember Shard" unique_id=230662747]
 collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ember Shard/Max Range" unique_id=571243658]
-position = Vector2(1, 1.5)
-shape = SubResource("RectangleShape2D_g4v7s")
+shape = SubResource("CircleShape2D_b7t4g")
 
 [node name="Timer" type="Timer" parent="Ember Shard" unique_id=598255310]
 one_shot = true
