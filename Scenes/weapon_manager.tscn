@@ -19,15 +19,15 @@ script = ExtResource("2_mqwab")
 script = ExtResource("1_7cv17")
 crit_chance = 0.1
 
-[node name="Max Range" type="Area2D" parent="Ember Shard" unique_id=230662747]
-collision_layer = 2
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ember Shard/Max Range" unique_id=571243658]
-shape = SubResource("CircleShape2D_b7t4g")
-
 [node name="Timer" type="Timer" parent="Ember Shard" unique_id=598255310]
 one_shot = true
 
-[connection signal="area_exited" from="Ember Shard/Max Range" to="." method="_on_max_range_area_exited"]
-[connection signal="body_entered" from="Ember Shard/Max Range" to="." method="_on_max_range_body_entered"]
+[node name="Max Range" type="Area2D" parent="." unique_id=230662747]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Max Range" unique_id=571243658]
+shape = SubResource("CircleShape2D_b7t4g")
+
+[connection signal="area_exited" from="Max Range" to="." method="_on_max_range_area_exited"]
+[connection signal="body_entered" from="Max Range" to="." method="_on_max_range_body_entered"]

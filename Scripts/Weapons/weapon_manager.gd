@@ -1,6 +1,12 @@
 extends Node2D
 
+@onready var max_range: Area2D = $"Max Range"
+@onready var player: CharacterBody2D = $"../Player"
+
 var body_in_range : Array[Node2D] = []
+
+func _process(delta: float) -> void:
+	max_range.global_position = player.global_position
 
 func _on_max_range_area_exited(area: Area2D) -> void:
 	if area.is_in_group("Projectile"):

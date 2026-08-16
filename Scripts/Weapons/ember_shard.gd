@@ -13,7 +13,6 @@ var ember_fired := 0
 func _ready() -> void:
 	is_active = true
 	player = get_tree().get_first_node_in_group("Player")
-	zombie = $"../../Enemy Manager/Zombie"
 
 func _process(_delta: float) -> void:
 	if not is_active:

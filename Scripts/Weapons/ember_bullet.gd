@@ -3,7 +3,6 @@ extends Area2D
 @onready var ember_stats: Node2D = $"../../Ember Stats"
 @onready var player: CharacterBody2D
 @onready var weapon_manager: Node2D = $"../../../"
-@onready var max_range: Area2D = $"../../Max Range"
 
 var direction: Vector2
 var current_target: Node2D
@@ -23,7 +22,7 @@ func _ready() -> void:
 		var closest_distance := INF
 		var health
 
-		# Find closest body and remove dead enemy
+		# Find closest enemy alive
 		for enemy in weapon_manager.body_in_range:
 			health = enemy.get_node("Components/Health Component")
 
@@ -36,11 +35,10 @@ func _ready() -> void:
 				closest_distance = global_position.distance_to(enemy.global_position)
 				current_target = enemy
 
-		health = current_target.get_node("Components/Health Component")
-		if health.current_hp <= 0:
-			direction = Vector2.from_angle(randf() * TAU)
-		else:
+		if current_target != null:
 			direction = (current_target.global_position - global_position).normalized()
+		else:
+			direction = Vector2.from_angle(randf() * TAU)
 	else:
 		direction = Vector2.from_angle(randf() * TAU)
 
