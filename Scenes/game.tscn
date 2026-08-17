@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://dtimsjpi7k33j" path="res://Scenes/player.tscn" id="1_ebmjs"]
 [ext_resource type="PackedScene" uid="uid://bjnq55uu1aes2" path="res://Scenes/background.tscn" id="1_qxrlw"]
+[ext_resource type="PackedScene" uid="uid://byh6adbr1glxv" path="res://Scenes/zombie.tscn" id="3_v158k"]
 [ext_resource type="PackedScene" uid="uid://bbqneleiu8nbk" path="res://Scenes/audio_manager.tscn" id="3_wrm1d"]
 [ext_resource type="Script" uid="uid://bc3odoea6gwu8" path="res://Scripts/enemy_manager.gd" id="4_1l0tm"]
 [ext_resource type="Script" uid="uid://di2tre74agsa" path="res://Scripts/xp_manager.gd" id="5_i6g32"]
@@ -24,6 +25,8 @@ y_sort_enabled = true
 script = ExtResource("4_1l0tm")
 
 [node name="Zombies" type="Node2D" parent="Enemy Manager" unique_id=1417675454]
+
+[node name="Zombie" parent="Enemy Manager/Zombies" unique_id=768690002 instance=ExtResource("3_v158k")]
 
 [node name="Spawn Path" type="Path2D" parent="Enemy Manager" unique_id=719349529]
 scale = Vector2(2.26, 2.26)

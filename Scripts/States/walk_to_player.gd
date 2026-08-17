@@ -3,15 +3,13 @@ class_name WalkToPlayer
 
 @onready var animated_sprite: AnimatedSprite2D = $"../../Animated Sprite"
 @onready var zombie_stats: Node2D = $"../../Zombie Stats"
+@onready var player: CharacterBody2D = $"../../../../../Player"
 
-var player : CharacterBody2D
 var zombie : CharacterBody2D
 var direction : Vector2
 
 func Enter():
 	#print("Zombie State: " + self.name)
-
-	player = get_tree().get_first_node_in_group("Player")
 	zombie = get_parent().get_parent()
 
 func Physics_Update(_delta: float):

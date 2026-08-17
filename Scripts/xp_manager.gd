@@ -21,12 +21,12 @@ func spawn_orb(position : Vector2):
 
 func modify_chance(orb_type: int):
 	match orb_type:
-		0: # small 
+		0: # small
 			medium_chance += 0.025
 			large_chance += 0.001
 			small_chance = 1 - (medium_chance + large_chance)
 
-			print("New Odds: \n Small: " + str(small_chance) 
+			print("New Odds: \n Small: " + str(small_chance)
 			+ "\nMedium:" +  str(medium_chance)
 			+ "\nLarge:" +  str(large_chance))
 
@@ -36,7 +36,7 @@ func modify_chance(orb_type: int):
 			medium_chance = max(medium_chance, 0)
 			small_chance = 1 - (medium_chance + large_chance)
 
-			print("New Odds: \n Small: " + str(small_chance) 
+			print("New Odds: \n Small: " + str(small_chance)
 			+ "\nMedium:" +  str(medium_chance)
 			+ "\nLarge:" +  str(large_chance))
 
@@ -47,7 +47,7 @@ func modify_chance(orb_type: int):
 			small_chance = 1 - (medium_chance + large_chance)
 
 
-			print("New Odds: \n Small: " + str(small_chance) 
+			print("New Odds: \n Small: " + str(small_chance)
 			+ "\nMedium:" +  str(medium_chance)
 			+ "\nLarge:" +  str(large_chance))
 		_:
@@ -61,13 +61,12 @@ func roll_orb() -> int:
 		return 1
 	else:
 		return 0
-	return 0
 
 func xp_amount(orb_type : int) -> float:
 	match orb_type:
 		0:
 			return randi_range(90,110)
-		1: 
+		1:
 			return randi_range(450,540)
 		2:
 			return randi_range(3300, 3850)
