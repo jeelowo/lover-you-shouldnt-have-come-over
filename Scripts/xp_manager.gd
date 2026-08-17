@@ -1,6 +1,7 @@
 extends Node2D
 
 @onready var player: CharacterBody2D
+@onready var orb_scene = preload("res://Scenes/xp_orb.tscn")
 
 var current_player_xp : float
 var small_chance : float
@@ -10,6 +11,13 @@ var large_chance := 0.01
 func _ready() -> void:
 	current_player_xp = 0
 	small_chance = 1 - (medium_chance + large_chance)
+
+func spawn_orb(position : Vector2):
+	var orb_instance = orb_scene.instantiate()
+	orb_instance.global_position = position
+	orb_instance.orb_type = roll_orb()
+	orb_instance.xp_value = xp_amount(orb_instance.orb_type)
+	add_child(orb_instance)
 
 func modify_chance(orb_type: int):
 	match orb_type:
@@ -25,6 +33,7 @@ func modify_chance(orb_type: int):
 		1: # medium
 			medium_chance -= 0.1
 			large_chance += 0.001
+			medium_chance = max(medium_chance, 0)
 			small_chance = 1 - (medium_chance + large_chance)
 
 			print("New Odds: \n Small: " + str(small_chance) 
@@ -34,8 +43,10 @@ func modify_chance(orb_type: int):
 		2: # large
 			medium_chance += 0.025
 			large_chance -= 0.08
+			large_chance = max(large_chance, 0)
 			small_chance = 1 - (medium_chance + large_chance)
-			
+
+
 			print("New Odds: \n Small: " + str(small_chance) 
 			+ "\nMedium:" +  str(medium_chance)
 			+ "\nLarge:" +  str(large_chance))

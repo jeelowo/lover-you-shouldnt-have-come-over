@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d1jxlgahdqetw"
-path="res://.godot/imported/Sprite-0001.png-423bd9582527c36a8bfa0bd1d7774039.ctex"
+uid="uid://txck45f3iicq"
+path="res://.godot/imported/Green.png-edde6bd20f89d15e1828e92833f5eb3d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/XP Orb/Sprite-0001.png"
-dest_files=["res://.godot/imported/Sprite-0001.png-423bd9582527c36a8bfa0bd1d7774039.ctex"]
+source_file="res://Assets/Sprites/XP Orb/Green.png"
+dest_files=["res://.godot/imported/Green.png-edde6bd20f89d15e1828e92833f5eb3d.ctex"]
 
 [params]
 
