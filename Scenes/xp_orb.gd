@@ -8,11 +8,9 @@ var orb_type : int
 
 func _ready() -> void:
 	if orb_type == 1:
-		var orb_sprite = preload("res://Assets/Sprites/XP Orb/Red.png")
-		orbs.texture = orb_sprite
+		orbs.texture = preload("res://Assets/Sprites/XP Orb/Red.png")
 	elif orb_type == 2:
-		var orb_sprite = preload("res://Assets/Sprites/XP Orb/Gold.png")
-		orbs.texture = orb_sprite
+		orbs.texture = preload("res://Assets/Sprites/XP Orb/Gold.png")
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):

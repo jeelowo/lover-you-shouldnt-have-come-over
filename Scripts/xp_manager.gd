@@ -12,9 +12,9 @@ func _ready() -> void:
 	current_player_xp = 0
 	small_chance = 1 - (medium_chance + large_chance)
 
-func spawn_orb(position : Vector2):
+func spawn_orb(pos : Vector2):
 	var orb_instance = orb_scene.instantiate()
-	orb_instance.global_position = position
+	orb_instance.global_position = pos
 	orb_instance.orb_type = roll_orb()
 	orb_instance.xp_value = xp_amount(orb_instance.orb_type)
 	add_child(orb_instance)
@@ -59,8 +59,7 @@ func roll_orb() -> int:
 		return 2
 	elif roll <= large_chance + medium_chance:
 		return 1
-	else:
-		return 0
+	return 0
 
 func xp_amount(orb_type : int) -> float:
 	match orb_type:
