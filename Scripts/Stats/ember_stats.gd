@@ -1,5 +1,4 @@
 extends Node
-class_name ember_stats
 
 @export var damage := 40.0 #done
 @export var cooldown_reduction := 0.5 #done
