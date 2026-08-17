@@ -57,7 +57,7 @@ func roll_orb() -> int:
 	var roll = randf()
 	if roll <= large_chance:
 		return 2
-	elif roll <= large_chance + medium_chance:
+	if roll <= large_chance + medium_chance:
 		return 1
 	return 0
 
