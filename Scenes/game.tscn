@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://bc3odoea6gwu8" path="res://Scripts/enemy_manager.gd" id="4_1l0tm"]
 [ext_resource type="Script" uid="uid://di2tre74agsa" path="res://Scripts/xp_manager.gd" id="5_i6g32"]
 [ext_resource type="PackedScene" uid="uid://bjrrf60fc5fc6" path="res://Scenes/weapon_manager.tscn" id="5_wowpa"]
+[ext_resource type="PackedScene" uid="uid://cwc718oognl7d" path="res://Scenes/xp_orb.tscn" id="6_1l0tm"]
 
 [sub_resource type="Curve2D" id="Curve2D_1l0tm"]
 _data = {
@@ -17,11 +18,6 @@ point_count = 5
 
 [node name="Background" parent="." unique_id=300832743 instance=ExtResource("1_qxrlw")]
 scale = Vector2(2, 2)
-
-[node name="Player" parent="." unique_id=1776890117 instance=ExtResource("1_ebmjs")]
-z_index = 1
-
-[node name="Weapon Manager" parent="." unique_id=269121661 instance=ExtResource("5_wowpa")]
 
 [node name="Enemy Manager" type="Node2D" parent="." unique_id=822169317]
 y_sort_enabled = true
@@ -38,9 +34,16 @@ position = Vector2(-281.5027, 158.0553)
 rotation = 1.573979
 progress = 1827.5674
 
+[node name="Weapon Manager" parent="." unique_id=269121661 instance=ExtResource("5_wowpa")]
+
+[node name="Player" parent="." unique_id=1776890117 instance=ExtResource("1_ebmjs")]
+z_index = 1
+
 [node name="XP Manager" type="Node2D" parent="." unique_id=265907429]
-unique_name_in_owner = true
 script = ExtResource("5_i6g32")
+
+[node name="XP Orb" parent="XP Manager" unique_id=617949063 instance=ExtResource("6_1l0tm")]
+position = Vector2(52.385, 0)
 
 [node name="Audio Manager" parent="." unique_id=1472686142 instance=ExtResource("3_wrm1d")]
 

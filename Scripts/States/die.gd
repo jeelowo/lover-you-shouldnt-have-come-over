@@ -4,6 +4,7 @@ class_name Die
 @onready var animated_sprite: AnimatedSprite2D = $"../../Animated Sprite"
 @onready var timer: Timer = $"../../Timer"
 @onready var collision_shape_2d: CollisionShape2D = $"../../CollisionShape2D"
+@onready var hurtbox_collision: CollisionShape2D = $"../../Boxes/Hurtbox/CollisionShape2D"
 
 var zombie : CharacterBody2D
 
@@ -20,7 +21,8 @@ func Exit():
 
 func _on_animated_sprite_animation_finished() -> void:
 	collision_shape_2d.disabled = true
+	hurtbox_collision.disabled = true
 	print(collision_shape_2d.disabled)
-	timer.start(2)
+	timer.start(1)
 	await timer.timeout
 	zombie.queue_free()

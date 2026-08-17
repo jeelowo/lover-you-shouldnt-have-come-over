@@ -7,13 +7,13 @@ extends Node2D
 
 const ZOMBIE_SCENE = preload("res://Scenes/zombie.tscn")
 @export var spawn_cooldown := 0.1
-@export var max_zombie := 1
+@export var max_zombie := 50
 
 func _ready() -> void:
 	timer.start(spawn_cooldown)
 
 func _process(_delta: float) -> void:
-	if (timer.is_stopped() and (get_node("Zombies").get_child_count() <= max_zombie
+	if (timer.is_stopped() and (get_node("Zombies").get_child_count() < max_zombie
 	or get_node("Zombies").get_child_count() == null)):
 		var zombie_instance = ZOMBIE_SCENE.instantiate()
 		spawn_location.progress_ratio = randf()

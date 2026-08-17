@@ -5,7 +5,7 @@ extends Node2D
 
 var body_in_range : Array[Node2D] = []
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	max_range.global_position = player.global_position
 
 func _on_max_range_area_exited(area: Area2D) -> void:

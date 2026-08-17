@@ -1,8 +1,8 @@
 extends Node2D
 
-@onready var player: CharacterBody2D = $"../Player"
+@onready var player: CharacterBody2D
 
-var current_xp : float
+var current_player_xp : float
 
 func _ready() -> void:
-	current_xp = 0
+	current_player_xp = 0
