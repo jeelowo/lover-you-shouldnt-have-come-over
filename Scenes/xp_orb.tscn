@@ -7,6 +7,33 @@
 radius = 6.0
 height = 16.0
 
+[sub_resource type="Gradient" id="Gradient_c7xup"]
+offsets = PackedFloat32Array(0.0023474179, 0.45305166)
+colors = PackedColorArray(1, 0.84313726, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_yf5fn"]
+gradient = SubResource("Gradient_c7xup")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="Gradient" id="Gradient_s6bd7"]
+offsets = PackedFloat32Array(0, 0.45774648)
+colors = PackedColorArray(0.7292956, 0.017124007, 0.10126733, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_s6bd7"]
+gradient = SubResource("Gradient_s6bd7")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="Gradient" id="Gradient_5ktd6"]
+offsets = PackedFloat32Array(0, 0.3967136)
+colors = PackedColorArray(0, 0.5803922, 0.4509804, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_57qmd"]
+gradient = SubResource("Gradient_5ktd6")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
 [node name="XP Orb" type="Area2D" unique_id=617949063]
 script = ExtResource("1_c7xup")
 
@@ -16,5 +43,18 @@ texture = ExtResource("2_c7xup")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=18839264]
 shape = SubResource("CapsuleShape2D_g4v7s")
+
+[node name="PointLightGold" type="PointLight2D" parent="." unique_id=276407452]
+enabled = false
+energy = 0.59
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_yf5fn")
+
+[node name="PointLightRed" type="PointLight2D" parent="." unique_id=1425588294]
+enabled = false
+texture = SubResource("GradientTexture2D_s6bd7")
+
+[node name="PointLightGreen" type="PointLight2D" parent="." unique_id=736658150]
+texture = SubResource("GradientTexture2D_57qmd")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -22,9 +22,9 @@ func _physics_process(_delta: float) -> void:
 	if player.velocity == Vector2(0,0):
 		animated_sprite.play(current_animation)
 	else:
-		if Input.is_action_just_pressed("move_left"):
+		if player.velocity.x < 0:
 			animated_sprite.flip_h = true
-		elif Input.is_action_just_pressed("move_right"):
+		elif player.velocity.x > 0:
 			animated_sprite.flip_h = false
 		animated_sprite.play("Walk")
 		current_animation = idle_animations.pick_random()

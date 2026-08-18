@@ -56,9 +56,12 @@ func modify_chance(orb_type: int):
 func roll_orb() -> int:
 	var roll = randf()
 	if roll <= large_chance:
+		modify_chance(2)
 		return 2
 	if roll <= large_chance + medium_chance:
+		modify_chance(1)
 		return 1
+	modify_chance(0)
 	return 0
 
 func xp_amount(orb_type : int) -> float:

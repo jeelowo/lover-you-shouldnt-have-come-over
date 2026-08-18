@@ -85,6 +85,16 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_g4v7s"]
 radius = 6.0
 
+[sub_resource type="Gradient" id="Gradient_b7t4g"]
+offsets = PackedFloat32Array(0, 0.4342723)
+colors = PackedColorArray(0.9137255, 0.32941177, 0.16862746, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_g4v7s"]
+gradient = SubResource("Gradient_b7t4g")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5307167, 0.9095563)
+
 [node name="Ember Bullet" type="Area2D" unique_id=2100648930]
 collision_layer = 2
 collision_mask = 2
@@ -107,5 +117,10 @@ region_rect = Rect2(52.971, 4.96, 6, 6)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=8675055]
 shape = SubResource("CircleShape2D_g4v7s")
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=1819676834]
+position = Vector2(-12.000008, 0)
+scale = Vector2(2.4374998, 1)
+texture = SubResource("GradientTexture2D_g4v7s")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
