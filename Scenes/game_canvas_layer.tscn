@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://do4urtmmtrkqb"]
+
+[ext_resource type="Script" uid="uid://bg2xbnffyg2ib" path="res://Scenes/player_hp_bar.gd" id="1_yudkj"]
+
+[node name="CanvasGroup" type="CanvasGroup" unique_id=303599162]
+
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=383393115]
+anchors_preset = -1
+offset_left = 413.0
+offset_top = -6568.2007
+offset_right = 566.0
+offset_bottom = -6541.2007
+value = 100.0
+show_percentage = false
+script = ExtResource("1_yudkj")
+
+[node name="Control" type="Control" parent="." unique_id=1304949545]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0

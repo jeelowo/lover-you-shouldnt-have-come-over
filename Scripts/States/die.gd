@@ -27,7 +27,7 @@ func _on_animated_sprite_animation_finished() -> void:
 		xp_manager.spawn_orb(zombie.global_position + Vector2(-21,30))
 	else:
 		xp_manager.spawn_orb(zombie.global_position + Vector2(30,30))
-	print(collision_shape_2d.disabled)
+	#print(collision_shape_2d.disabled)
 	timer.start(1)
 	await timer.timeout
 	zombie.queue_free()

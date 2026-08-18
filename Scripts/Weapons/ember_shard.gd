@@ -7,7 +7,7 @@ const EMBER_SCENE = preload("res://Scenes/ember_bullet.tscn")
 var is_active: bool
 var player : CharacterBody2D
 var zombie : CharacterBody2D
-var base_cooldown := 3.0
+var base_cooldown := 2.0
 var ember_fired := 0
 
 func _ready() -> void:

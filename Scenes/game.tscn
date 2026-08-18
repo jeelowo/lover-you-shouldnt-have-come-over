@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://di2tre74agsa" path="res://Scripts/xp_manager.gd" id="5_i6g32"]
 [ext_resource type="PackedScene" uid="uid://bjrrf60fc5fc6" path="res://Scenes/weapon_manager.tscn" id="5_wowpa"]
 [ext_resource type="PackedScene" uid="uid://cwc718oognl7d" path="res://Scenes/xp_orb.tscn" id="6_1l0tm"]
+[ext_resource type="PackedScene" uid="uid://do4urtmmtrkqb" path="res://Scenes/game_canvas_layer.tscn" id="9_h4fw4"]
 
 [sub_resource type="Curve2D" id="Curve2D_1l0tm"]
 _data = {
@@ -52,3 +53,5 @@ position = Vector2(52.385, 0)
 
 [node name="Timer" type="Timer" parent="." unique_id=821793110]
 one_shot = true
+
+[node name="CanvasGroup" parent="." unique_id=303599162 instance=ExtResource("9_h4fw4")]

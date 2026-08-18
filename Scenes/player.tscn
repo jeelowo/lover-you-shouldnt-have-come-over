@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://dahx22uq1q51i" path="res://Assets/Sprites/Player/Walk.png" id="6_pu2lt"]
 [ext_resource type="Script" uid="uid://dpgmuqllln7yg" path="res://Scripts/Components/movement_component.gd" id="8_tx1dd"]
 [ext_resource type="Script" uid="uid://o0lyhcauma6x" path="res://Scripts/Components/health_component.gd" id="9_tx1dd"]
+[ext_resource type="Script" uid="uid://cunar4wunsfkc" path="res://Scenes/pickup_range.gd" id="11_gymyn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ukyrk"]
 atlas = ExtResource("1_3smsa")
@@ -402,15 +403,16 @@ size = Vector2(17, 38)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bge8u"]
 size = Vector2(19, 67.5)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_g4v7s"]
+radius = 100.0
+
 [node name="Player" type="CharacterBody2D" unique_id=1776890117]
 script = ExtResource("1_f1ek2")
 
 [node name="Animated Sprite" type="AnimatedSprite2D" parent="." unique_id=893593177]
 position = Vector2(11, -19)
 sprite_frames = SubResource("SpriteFrames_cvnsp")
-animation = &"Hurt"
-frame = 3
-frame_progress = 1.0
+animation = &"Dead"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=314876745]
 position = Vector2(7.5, 26)
@@ -440,6 +442,13 @@ unique_name_in_owner = true
 zoom = Vector2(1.5, 1.5)
 position_smoothing_enabled = true
 position_smoothing_speed = 8.0
+
+[node name="Pickup Range" type="Area2D" parent="." unique_id=98313789]
+script = ExtResource("11_gymyn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pickup Range" unique_id=1521649272]
+position = Vector2(7, 20)
+shape = SubResource("CircleShape2D_g4v7s")
 
 [node name="Timer" type="Timer" parent="." unique_id=1571670824]
 one_shot = true

@@ -26,9 +26,9 @@ func modify_chance(orb_type: int):
 			large_chance += 0.001
 			small_chance = 1 - (medium_chance + large_chance)
 
-			print("New Odds: \n Small: " + str(small_chance)
-			+ "\nMedium:" +  str(medium_chance)
-			+ "\nLarge:" +  str(large_chance))
+			#print("New Odds: \n Small: " + str(small_chance)
+			#+ "\nMedium:" +  str(medium_chance)
+			#+ "\nLarge:" +  str(large_chance))
 
 		1: # medium
 			medium_chance -= 0.1
@@ -36,9 +36,9 @@ func modify_chance(orb_type: int):
 			medium_chance = max(medium_chance, 0)
 			small_chance = 1 - (medium_chance + large_chance)
 
-			print("New Odds: \n Small: " + str(small_chance)
-			+ "\nMedium:" +  str(medium_chance)
-			+ "\nLarge:" +  str(large_chance))
+			#print("New Odds: \n Small: " + str(small_chance)
+			#+ "\nMedium:" +  str(medium_chance)
+			#+ "\nLarge:" +  str(large_chance))
 
 		2: # large
 			medium_chance += 0.025
@@ -47,9 +47,9 @@ func modify_chance(orb_type: int):
 			small_chance = 1 - (medium_chance + large_chance)
 
 
-			print("New Odds: \n Small: " + str(small_chance)
-			+ "\nMedium:" +  str(medium_chance)
-			+ "\nLarge:" +  str(large_chance))
+			#print("New Odds: \n Small: " + str(small_chance)
+			#+ "\nMedium:" +  str(medium_chance)
+			#+ "\nLarge:" +  str(large_chance))
 		_:
 			print("WHAT????")
 
