@@ -7,14 +7,16 @@
 [ext_resource type="Script" uid="uid://bc3odoea6gwu8" path="res://Scripts/enemy_manager.gd" id="4_1l0tm"]
 [ext_resource type="Script" uid="uid://di2tre74agsa" path="res://Scripts/xp_manager.gd" id="5_i6g32"]
 [ext_resource type="PackedScene" uid="uid://bjrrf60fc5fc6" path="res://Scenes/weapon_manager.tscn" id="5_wowpa"]
-[ext_resource type="PackedScene" uid="uid://cwc718oognl7d" path="res://Scenes/xp_orb.tscn" id="6_1l0tm"]
-[ext_resource type="PackedScene" uid="uid://do4urtmmtrkqb" path="res://Scenes/game_canvas_layer.tscn" id="9_h4fw4"]
+[ext_resource type="Script" uid="uid://cunar4wunsfkc" path="res://Scripts/pickup_range.gd" id="8_h4fw4"]
 
 [sub_resource type="Curve2D" id="Curve2D_1l0tm"]
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, -281.50272, 158.05531, 0, 0, 0, 0, 279.99866, 161.4908, 0, 0, 0, 0, 280.5, -158.5, 0, 0, 0, 0, -280.5, -157, 0, 0, 0, 0, -281.50272, 158.05531)
 }
 point_count = 5
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ldgsr"]
+radius = 100.0
 
 [node name="Game" type="Node2D" unique_id=1215447500]
 
@@ -26,6 +28,8 @@ y_sort_enabled = true
 script = ExtResource("4_1l0tm")
 
 [node name="Zombies" type="Node2D" parent="Enemy Manager" unique_id=1417675454]
+y_sort_enabled = true
+position = Vector2(13, 2)
 
 [node name="Zombie" parent="Enemy Manager/Zombies" unique_id=768690002 instance=ExtResource("3_v158k")]
 
@@ -46,12 +50,16 @@ z_index = 1
 [node name="XP Manager" type="Node2D" parent="." unique_id=265907429]
 script = ExtResource("5_i6g32")
 
-[node name="XP Orb" parent="XP Manager" unique_id=617949063 instance=ExtResource("6_1l0tm")]
-position = Vector2(52.385, 0)
+[node name="Pickup Range" type="Area2D" parent="XP Manager" unique_id=589774312]
+script = ExtResource("8_h4fw4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="XP Manager/Pickup Range" unique_id=1878942816]
+position = Vector2(7, 20)
+shape = SubResource("CircleShape2D_ldgsr")
 
 [node name="Audio Manager" parent="." unique_id=1472686142 instance=ExtResource("3_wrm1d")]
 
 [node name="Timer" type="Timer" parent="." unique_id=821793110]
 one_shot = true
 
-[node name="CanvasGroup" parent="." unique_id=303599162 instance=ExtResource("9_h4fw4")]
+[connection signal="area_entered" from="XP Manager/Pickup Range" to="XP Manager/Pickup Range" method="_on_area_entered"]

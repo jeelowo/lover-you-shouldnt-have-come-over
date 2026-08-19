@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cwc718oognl7d"]
 
-[ext_resource type="Script" uid="uid://f4cw6rmabtnx" path="res://Scenes/xp_orb.gd" id="1_c7xup"]
+[ext_resource type="Script" uid="uid://f4cw6rmabtnx" path="res://Scripts/xp_orb.gd" id="1_c7xup"]
 [ext_resource type="Texture2D" uid="uid://txck45f3iicq" path="res://Assets/Sprites/XP Orb/Green.png" id="2_c7xup"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g4v7s"]
@@ -56,5 +56,8 @@ texture = SubResource("GradientTexture2D_s6bd7")
 
 [node name="PointLightGreen" type="PointLight2D" parent="." unique_id=736658150]
 texture = SubResource("GradientTexture2D_57qmd")
+
+[node name="Timer" type="Timer" parent="." unique_id=690188959]
+one_shot = true
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
