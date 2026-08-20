@@ -8,6 +8,8 @@ extends Area2D
 @onready var point_light_gold: PointLight2D = $PointLightGold
 @onready var timer: Timer = $Timer
 
+const XP_SOUNDS_SCENE = preload("res://Scenes/xp_sound.tscn")
+
 @export var speed := 200
 
 var xp_value : int
@@ -47,5 +49,7 @@ func _process(delta: float) -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
+		var xp_sound = XP_SOUNDS_SCENE.instantiate()
+		get_parent().add_child(xp_sound)
 		xp_manager.current_player_xp += xp_value
 		queue_free()
