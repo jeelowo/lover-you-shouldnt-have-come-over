@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bjyvde4lw0wiy" path="res://Scenes/xp_sounds.gd" id="1_3ju1t"]
 
 [node name="XP Sounds" type="AudioStreamPlayer2D" unique_id=1572453892]
+pitch_scale = 1.28
 script = ExtResource("1_3ju1t")
 
 [connection signal="finished" from="." to="." method="_on_finished"]

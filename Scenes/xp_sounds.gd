@@ -1,11 +1,11 @@
 extends AudioStreamPlayer2D
 
 var xp_sounds = [
-	preload("res://Assets/Audio/XP/freesound_community-pop-91931.wav"),
-	preload("res://Assets/Audio/XP/freesound_community-pop-91931_2.wav"),
-	preload("res://Assets/Audio/XP/freesound_community-pop-91931_3.wav"),
-	preload("res://Assets/Audio/XP/freesound_community-pop-91931_4.wav"),
-	preload("res://Assets/Audio/XP/freesound_community-pop-91931_5.wav")
+	preload("res://Assets/Audio/XP/0820(1).MP3"),
+	preload("res://Assets/Audio/XP/0820(2).MP3"),
+	preload("res://Assets/Audio/XP/0820(3).MP3"),
+	preload("res://Assets/Audio/XP/0820(4).MP3"),
+	preload("res://Assets/Audio/XP/0820.MP3"),
 ]
 
 func _ready() -> void:
