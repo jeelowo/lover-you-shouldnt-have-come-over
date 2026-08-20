@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://c31yodslec5n1"]
+
+[ext_resource type="Texture2D" uid="uid://dc6jbiuuficab" path="res://Assets/Sprites/Weapon/63.png" id="1_0jc8k"]
+[ext_resource type="Script" uid="uid://cx2q4dqlocirh" path="res://Scenes/ember_splash.gd" id="2_bh4lt"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bh4lt"]
+atlas = ExtResource("1_0jc8k")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pr3tn"]
+atlas = ExtResource("1_0jc8k")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xppso"]
+atlas = ExtResource("1_0jc8k")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mksjf"]
+atlas = ExtResource("1_0jc8k")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_14nv1"]
+atlas = ExtResource("1_0jc8k")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_suelk"]
+atlas = ExtResource("1_0jc8k")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t0sx1"]
+atlas = ExtResource("1_0jc8k")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g4v7s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bh4lt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pr3tn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xppso")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mksjf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_14nv1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_suelk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t0sx1")
+}],
+"loop": 0,
+"name": &"default",
+"speed": 15.0
+}]
+
+[node name="Ember Splash" type="AnimatedSprite2D" unique_id=497116328]
+sprite_frames = SubResource("SpriteFrames_g4v7s")
+autoplay = "default"
+frame = 6
+frame_progress = 1.0
+script = ExtResource("2_bh4lt")
+
+[connection signal="animation_finished" from="." to="." method="_on_animation_finished"]

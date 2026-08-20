@@ -15,28 +15,28 @@ func _ready() -> void:
 # for testing
 #func _process(_delta: float) -> void:
 #	if timer.is_stopped():
-#		take_damage(1)
-#		timer.start(0.05)
+#		take_damage(10)
+#		timer.start(0.5)
 
 # Custom Functions
 func increase_max_hp(amount: float):
 	zombie_stats.max_hp += amount
 	current_hp += amount
-	print("max hp is now: " + str(zombie_stats.max_hp))
+	#print("max hp is now: " + str(zombie_stats.max_hp))
 
 func take_damage(amount: float):
 	current_hp = max(current_hp - amount, 0)
 	damaged.emit(amount)
-	print("current_hp: " + str(current_hp))
+	#print("current_hp: " + str(current_hp))
 
 	if current_hp <= 0:
-		print("you died lol")
+		#print("you died lol")
 		die.emit()
 
 func heal(amount: float):
 	current_hp = min(current_hp + amount, zombie_stats.max_hp)
 	healed.emit(amount)
-	print("current_hp: " + str(current_hp))
+	#print("current_hp: " + str(current_hp))
 
 	if current_hp > zombie_stats.max_hp:
 		current_hp = zombie_stats.max_hp

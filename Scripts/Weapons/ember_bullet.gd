@@ -3,6 +3,7 @@ extends Area2D
 @onready var ember_stats: Node2D = $"../../Ember Stats"
 @onready var player: CharacterBody2D
 @onready var weapon_manager: Node2D = $"../../../"
+const SPLASH_SCENE = preload("res://Scenes/ember_splash.tscn")
 
 var direction: Vector2
 var current_target: Node2D
@@ -52,6 +53,9 @@ func _process(delta: float) -> void:
 
 func _on_area_entered(area: Area2D) -> void:
 	if area.is_in_group("Zombie"):
+		var splash_effect = SPLASH_SCENE.instantiate()
+		splash_effect.global_position = global_position
+		get_parent().add_child(splash_effect)
 		queue_free()
 
 		var health = area.get_node(

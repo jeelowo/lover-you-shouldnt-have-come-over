@@ -10,7 +10,7 @@ class_name Die
 var zombie : CharacterBody2D
 
 func Enter():
-	print("State: " + self.name)
+	#print("State: " + self.name)
 
 	animated_sprite.animation_finished.connect(_on_animated_sprite_animation_finished)
 	zombie = get_parent().get_parent()
