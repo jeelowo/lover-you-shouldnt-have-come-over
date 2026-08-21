@@ -58,6 +58,9 @@ func _on_area_entered(area: Area2D) -> void:
 		get_parent().add_child(splash_effect)
 		queue_free()
 
+		var knockback_component = area.get_node(
+			"../../Components/Knockback Component"
+		)
 		var health = area.get_node(
 			"../../Components/Health Component"
 		)
@@ -67,3 +70,11 @@ func _on_area_entered(area: Area2D) -> void:
 				ember_stats.damage,
 				ember_stats.crit_dmg,
 				ember_stats.crit_chance ))
+
+		if health.current_hp > 0:
+			var knockback_velocity = knockback_component.add_knockback(player.global_position ,area.global_position)
+			var hurt = area.get_parent().get_parent().get_node("State Machine/Hurt")
+			hurt.knockback_velocity = knockback_velocity
+			hurt.Transitioned.emit(hurt, "Hurt")
+			print("KB VELOCITY: ", knockback_velocity)
+			print("HURT STATE: ", hurt)
