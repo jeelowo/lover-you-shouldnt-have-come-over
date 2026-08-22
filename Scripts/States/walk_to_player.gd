@@ -16,7 +16,7 @@ func Physics_Update(_delta: float):
 	direction = (player.global_position - zombie.global_position).normalized()
 	zombie.velocity = direction * zombie_stats.movement_speed
 	zombie.move_and_slide()
-	animated_sprite.play("Walk 1")
+	animated_sprite.play("Walk " + str(zombie.skin))
 
 	if zombie.velocity.x < 0:
 		animated_sprite.flip_h = true

@@ -1,0 +1,47 @@
+[33m1d7c977[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m fix: hurt-state knockback flow
+[33m885e3ad[m replace XP sound effects
+[33meceded8[m feat: play xp sfx when collecting xp orbs
+[33mbb0678a[m feat: play random fire sound on ember hit
+[33me645491[m feat: added splash effect on ember hit
+[33m4177035[m feat: xp orb now home to player if in range
+[33m3491797[m feat: add pickup range & HP UI; tweak weapon/xp
+[33m32e0f32[m feat: add orb and ember lights
+[33m2b5ebdb[m fix: gdlint2
+[33mdf34df1[m fix: gdlint error
+[33mcc5c26e[m feat: xp now drops from enemy
+[33m5da15ad[m feat: added orb spawner function
+[33m238f85f[m feat: added roll_orb and xp_amount functions
+[33ma4b8a00[m feat: added xp odds pity system
+[33m4cd7ae1[m add XP orb scene
+[33m4b89cb3[m fix: make max range follow player
+[33m927316a[m fixed: spawn location follows camera
+[33ma8c50e2[m fixed: shoot randomly if current target just died
+[33m5c29466[m fixed: ember targetting dead enemy
+[33m764f916[m fixed: disable zombie collision at death
+[33m1a43358[m feat: enemy spawn randomly outside camera
+[33m70d8252[m fixed: move max range to bullet start pos
+[33mff773c9[m fixed: ember projectile targeting and rotation
+[33m5a81169[m feat: shoot randomly when no enemy found
+[33m215bbe4[m feat: damage can now crit and overcrit
+[33m22767a4[m feat: ember now damage enemy
+[33md7591b1[m fixed: ember bullet now rotates based on direction
+[33mce75297[m feat: ember shard now shoot from player
+[33m044de96[m fixed: max area not detecting entities
+[33m00cbc64[m feat: ember proj now shoots
+[33ma2547af[m feat: destroy projectiles at max range
+[33mc3122fc[m initial Weapon Manager + sprites
+[33m6e8d925[m feat: reduce damage taken equal to armor
+[33m950fa2a[m feat: add continuous contact damage to enemy
+[33md08fd35[m player invincibility frames
+[33m404ab73[m zombie now deals damage at contact
+[33maf55eaa[m added zombie Hitbox and Hurtbox
+[33m78e8409[m knockback animation not triggers properly
+[33m9fcc883[m added Knockback logic
+[33m6a90b30[m zombie Die State + stats
+[33m3126ca3[m zombie Walk State
+[33mf2ceba7[m added initial Zombie scene
+[33m9eae6ef[m added Health Component
+[33ma0b689c[m added inital player stats
+[33mfcbfe32[m player basic movement
+[33mdd320d1[m added player sprites
+[33m9228dfb[m Initial commit

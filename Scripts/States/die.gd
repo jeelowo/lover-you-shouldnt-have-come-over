@@ -14,7 +14,7 @@ func Enter():
 
 	animated_sprite.animation_finished.connect(_on_animated_sprite_animation_finished)
 	zombie = get_parent().get_parent()
-	animated_sprite.play("Dead 1")
+	animated_sprite.play("Dead " + str(zombie.skin))
 	zombie.velocity = Vector2.ZERO
 
 func Exit():

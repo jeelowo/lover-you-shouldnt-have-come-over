@@ -19,7 +19,7 @@ func Enter():
 
 	knockbacked = false
 	initial_pos = zombie.global_position
-	animated_sprite.play("Hurt 1")
+	animated_sprite.play("Hurt " + str(zombie.skin))
 
 func Physics_Update(_delta: float):
 	if not knockbacked:
