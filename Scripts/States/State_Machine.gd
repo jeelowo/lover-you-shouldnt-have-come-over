@@ -22,6 +22,15 @@ func 	_physics_process(delta: float):
 	if current_state:
 		current_state.Physics_Update(delta)
 
+func transition_to(new_state_name: String):
+	var new_state = states.get(new_state_name.to_lower())
+	if !new_state:
+		return
+
+	current_state.Exit()
+	new_state.Enter()
+	current_state = new_state
+
 func on_child_transition(state, new_state_name):
 	if state != current_state:
 		return
