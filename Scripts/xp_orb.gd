@@ -10,7 +10,7 @@ extends Area2D
 
 const XP_SOUNDS_SCENE = preload("res://Scenes/xp_sound.tscn")
 
-@export var speed := 200
+@export var speed := 200.0
 
 var xp_value : int
 var orb_type : int

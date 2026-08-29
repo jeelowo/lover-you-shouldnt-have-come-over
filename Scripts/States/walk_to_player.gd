@@ -27,5 +27,5 @@ func Physics_Update(_delta: float):
 func _on_health_component_die() -> void:
 	Transitioned.emit(self, "Die")
 
-func _on_health_component_damaged(amount: float) -> void:
+func _on_health_component_damaged(_amount: float) -> void:
 	Transitioned.emit(self, "Hurt")

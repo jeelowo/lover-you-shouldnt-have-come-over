@@ -4,12 +4,10 @@ class_name Hurt
 @onready var animated_sprite: AnimatedSprite2D = $"../../Animated Sprite"
 @onready var knockback_component: Node2D = $"../../Components/Knockback Component"
 @onready var zombie: CharacterBody2D = $"../.."
-@onready var zombie_stats: Node2D = $"../../Zombie Stats"
-@onready var timer: Timer = $"../../Timer"
+#@onready var zombie_stats: Node2D = $"../../Zombie Stats"
+@onready var timer: Timer = $Timer
 
 var player : CharacterBody2D
-var initial_pos : Vector2
-var knockbacked := false
 var knockback_velocity := Vector2(0,0)
 
 func Enter():
@@ -18,21 +16,20 @@ func Enter():
 	player = get_tree().get_first_node_in_group("Player")
 	animated_sprite.animation_finished.connect(_on_animated_sprite_animation_finished)
 
-	initial_pos = zombie.global_position
 	animated_sprite.play("Hurt " + str(zombie.skin))
+	timer.start(0.03)
 	knockback_velocity = (
 	knockback_component.add_knockback(player.global_position, zombie.global_position))
 
 func Physics_Update(_delta: float):
-	if not knockbacked and timer.is_stopped():
+	if not timer.is_stopped():
 		zombie.velocity = knockback_velocity
-		timer.start(0.2)
-		knockbacked = true
+	else:
+		zombie.velocity = Vector2.ZERO
 	zombie.move_and_slide()
 
 func Exit():
 	animated_sprite.animation_finished.disconnect(_on_animated_sprite_animation_finished)
-	knockback_velocity = Vector2.ZERO
 
 func _on_health_component_die() -> void:
 	Transitioned.emit(self, "Die")
