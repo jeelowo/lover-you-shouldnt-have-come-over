@@ -9,7 +9,7 @@ class_name Hurt
 
 var player : CharacterBody2D
 var initial_pos : Vector2
-var knockbacked : bool
+var knockbacked := false
 var knockback_velocity := Vector2(0,0)
 
 func Enter():
@@ -18,15 +18,16 @@ func Enter():
 	player = get_tree().get_first_node_in_group("Player")
 	animated_sprite.animation_finished.connect(_on_animated_sprite_animation_finished)
 
-	knockbacked = false
 	initial_pos = zombie.global_position
 	animated_sprite.play("Hurt " + str(zombie.skin))
+	knockback_velocity = (
+	knockback_component.add_knockback(player.global_position, zombie.global_position))
 
 func Physics_Update(_delta: float):
-	print("HURT RUNNING")
-	print("KB: ", knockback_velocity)
-
-	zombie.velocity = knockback_velocity
+	if not knockbacked and timer.is_stopped():
+		zombie.velocity = knockback_velocity
+		timer.start(0.2)
+		knockbacked = true
 	zombie.move_and_slide()
 
 func Exit():
