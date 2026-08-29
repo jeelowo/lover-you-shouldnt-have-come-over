@@ -4,11 +4,12 @@ class_name Hurt
 @onready var animated_sprite: AnimatedSprite2D = $"../../Animated Sprite"
 @onready var knockback_component: Node2D = $"../../Components/Knockback Component"
 @onready var zombie: CharacterBody2D = $"../.."
-#@onready var zombie_stats: Node2D = $"../../Zombie Stats"
+@onready var zombie_stats: Node2D = $"../../Zombie Stats"
 @onready var timer: Timer = $Timer
 
 var player : CharacterBody2D
 var knockback_velocity := Vector2(0,0)
+var knockback_time := 0.035
 
 func Enter():
 	print("Zombie State: " + self.name)
@@ -17,7 +18,7 @@ func Enter():
 	animated_sprite.animation_finished.connect(_on_animated_sprite_animation_finished)
 
 	animated_sprite.play("Hurt " + str(zombie.skin))
-	timer.start(0.03)
+	timer.start(knockback_time * (1.00 - zombie_stats.knockback_res))
 	knockback_velocity = (
 	knockback_component.add_knockback(player.global_position, zombie.global_position))
 
