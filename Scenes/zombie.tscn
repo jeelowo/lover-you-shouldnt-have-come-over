@@ -709,6 +709,7 @@ one_shot = true
 [node name="DamageTimer" type="Timer" parent="." unique_id=1227831618]
 wait_time = 0.5
 
+[connection signal="frame_changed" from="Animated Sprite" to="State Machine/Die" method="_on_animated_sprite_frame_changed"]
 [connection signal="damaged" from="Components/Health Component" to="State Machine/Walk" method="_on_health_component_damaged"]
 [connection signal="die" from="Components/Health Component" to="State Machine/Walk" method="_on_health_component_die"]
 [connection signal="die" from="Components/Health Component" to="State Machine/Hurt" method="_on_health_component_die"]

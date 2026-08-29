@@ -68,6 +68,8 @@ frame_progress = 1.0
 script = ExtResource("2_bh4lt")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=486412850]
+volume_db = -8.413
+pitch_scale = 1.79
 
 [connection signal="animation_finished" from="." to="." method="_on_animation_finished"]
 [connection signal="finished" from="AudioStreamPlayer2D" to="." method="_on_audio_stream_player_2d_finished"]

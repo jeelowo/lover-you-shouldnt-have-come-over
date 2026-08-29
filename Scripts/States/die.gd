@@ -10,19 +10,20 @@ class_name Die
 var zombie : CharacterBody2D
 
 func Enter():
-	#print("State: " + self.name)
-
 	animated_sprite.animation_finished.connect(_on_animated_sprite_animation_finished)
 	zombie = get_parent().get_parent()
 	animated_sprite.play("Dead " + str(zombie.skin))
 	zombie.velocity = Vector2.ZERO
 
+func Update(_delta: float):
+	if animated_sprite.frame >= 0:
+		collision_shape_2d.disabled = true
+		hurtbox_collision.disabled = true
+
 func Exit():
 	animated_sprite.animation_finished.disconnect(_on_animated_sprite_animation_finished)
 
 func _on_animated_sprite_animation_finished() -> void:
-	collision_shape_2d.disabled = true
-	hurtbox_collision.disabled = true
 	if animated_sprite.flip_h == true:
 		xp_manager.spawn_orb(zombie.global_position + Vector2(-21,30))
 	else:
