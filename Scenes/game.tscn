@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://di2tre74agsa" path="res://Scripts/xp_manager.gd" id="5_i6g32"]
 [ext_resource type="PackedScene" uid="uid://bjrrf60fc5fc6" path="res://Scenes/weapon_manager.tscn" id="5_wowpa"]
 [ext_resource type="Script" uid="uid://cunar4wunsfkc" path="res://Scripts/pickup_range.gd" id="8_h4fw4"]
+[ext_resource type="Script" uid="uid://dwna3auu7y7v2" path="res://Scenes/game_control.gd" id="9_h4fw4"]
 
 [sub_resource type="Curve2D" id="Curve2D_1l0tm"]
 _data = {
@@ -61,5 +62,30 @@ shape = SubResource("CircleShape2D_ldgsr")
 
 [node name="Timer" type="Timer" parent="." unique_id=821793110]
 one_shot = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1996964494]
+
+[node name="Control" type="Control" parent="CanvasLayer" unique_id=1614292919]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1600.0
+offset_bottom = 900.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("9_h4fw4")
+
+[node name="Healthbar" type="ProgressBar" parent="CanvasLayer/Control" unique_id=1550823081]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -35.0
+offset_top = 523.0
+offset_right = 465.0
+offset_bottom = -337.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.2, 0.2)
 
 [connection signal="area_entered" from="XP Manager/Pickup Range" to="XP Manager/Pickup Range" method="_on_area_entered"]

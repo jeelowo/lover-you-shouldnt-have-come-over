@@ -12,7 +12,7 @@ var knockback_velocity := Vector2(0,0)
 var knockback_time := 0.035
 
 func Enter():
-	print("Zombie State: " + self.name)
+	#print("Zombie State: " + self.name)
 
 	player = get_tree().get_first_node_in_group("Player")
 	animated_sprite.animation_finished.connect(_on_animated_sprite_animation_finished)

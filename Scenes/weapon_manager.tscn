@@ -18,7 +18,7 @@ script = ExtResource("2_mqwab")
 [node name="Ember Stats" type="Node2D" parent="Ember Shard" unique_id=507880259]
 script = ExtResource("1_7cv17")
 damage = 200.0
-cooldown_reduction = 0.99
+cooldown_reduction = 0.82
 
 [node name="Timer" type="Timer" parent="Ember Shard" unique_id=598255310]
 wait_time = 3.0

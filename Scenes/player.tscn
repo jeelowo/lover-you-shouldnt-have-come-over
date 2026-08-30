@@ -439,8 +439,7 @@ shape = SubResource("RectangleShape2D_bge8u")
 unique_name_in_owner = true
 position = Vector2(-7, 0)
 zoom = Vector2(1.5, 1.5)
-position_smoothing_enabled = true
-position_smoothing_speed = 8.0
+position_smoothing_speed = 15.0
 
 [node name="Timer" type="Timer" parent="." unique_id=1571670824]
 one_shot = true
