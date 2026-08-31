@@ -15,6 +15,13 @@ func _ready() -> void:
 	current_hp = player_stats.max_hp
 	invincible = false
 
+# for debugging
+#func _process(delta: float) -> void:
+#	if timer.is_stopped():
+#		increase_max_hp(10.0)
+#		take_damage(20.0)
+#		timer.start(1.0)
+
 # Custom Functions
 func increase_max_hp(amount: float):
 	player_stats.max_hp += amount
