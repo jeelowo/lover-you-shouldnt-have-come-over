@@ -105,8 +105,82 @@ show_percentage = false
 metadata/_edit_use_anchors_ = true
 
 [node name="Upgrade Panel" type="Panel" parent="CanvasLayer/Control" unique_id=162430322]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -336.0
+offset_top = -381.0
+offset_right = 336.0
+offset_bottom = 160.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Option 1" type="Button" parent="CanvasLayer/Control/Upgrade Panel" unique_id=167618454]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 29.0
+offset_top = 29.0
+offset_right = -29.0
+offset_bottom = -388.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "OPTION 1"
+
+[node name="Option 2" type="Button" parent="CanvasLayer/Control/Upgrade Panel" unique_id=573376506]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 29.0
+offset_top = 169.0
+offset_right = -29.0
+offset_bottom = -248.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "OPTION 2"
+
+[node name="Option 3" type="Button" parent="CanvasLayer/Control/Upgrade Panel" unique_id=2013601046]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 29.0
+offset_top = 309.0
+offset_right = -29.0
+offset_bottom = -108.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "OPTION 3"
+
+[node name="Banish" type="Button" parent="CanvasLayer/Control/Upgrade Panel" unique_id=1383817658]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 29.0
+offset_top = 449.0
+offset_right = -345.0
+offset_bottom = -29.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "BANISH"
+
+[node name="Skip" type="Button" parent="CanvasLayer/Control/Upgrade Panel" unique_id=490685869]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 345.0
+offset_top = 449.0
+offset_right = -29.0
+offset_bottom = -29.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "SKIP"
 
 [connection signal="area_entered" from="XP Manager/Pickup Range" to="XP Manager/Pickup Range" method="_on_area_entered"]
