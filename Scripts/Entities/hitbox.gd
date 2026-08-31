@@ -2,8 +2,7 @@ extends Area2D
 
 @onready var zombie_stats: Node2D = $"../../Zombie Stats"
 @onready var damage_timer: Timer = $"../../DamageTimer"
-
-var player_hurtbox: Area2D = null
+var player_hurtbox : Area2D
 
 func _on_area_entered(area: Area2D) -> void:
 	if area.is_in_group("Player"):

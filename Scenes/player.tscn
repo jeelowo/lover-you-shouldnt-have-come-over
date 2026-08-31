@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://dahx22uq1q51i" path="res://Assets/Sprites/Player/Walk.png" id="6_pu2lt"]
 [ext_resource type="Script" uid="uid://dpgmuqllln7yg" path="res://Scripts/Components/movement_component.gd" id="8_tx1dd"]
 [ext_resource type="Script" uid="uid://o0lyhcauma6x" path="res://Scripts/Components/health_component.gd" id="9_tx1dd"]
+[ext_resource type="Script" uid="uid://c26x4qybcl8au" path="res://Scenes/player_hurtbox.gd" id="11_gymyn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ukyrk"]
 atlas = ExtResource("1_3smsa")
@@ -397,8 +398,6 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b6em2"]
 size = Vector2(17, 38)
 
-[sub_resource type="GDScript" id="GDScript_tx1dd"]
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bge8u"]
 size = Vector2(19, 67.5)
 
@@ -429,7 +428,7 @@ script = ExtResource("1_v0iea")
 
 [node name="Hurtbox" type="Area2D" parent="." unique_id=955989400]
 position = Vector2(1, 26)
-script = SubResource("GDScript_tx1dd")
+script = ExtResource("11_gymyn")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=980744594]
 position = Vector2(-0.5, -15.25)
