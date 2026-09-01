@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://dahx22uq1q51i" path="res://Assets/Sprites/Player/Walk.png" id="6_pu2lt"]
 [ext_resource type="Script" uid="uid://dpgmuqllln7yg" path="res://Scripts/Components/movement_component.gd" id="8_tx1dd"]
 [ext_resource type="Script" uid="uid://o0lyhcauma6x" path="res://Scripts/Components/health_component.gd" id="9_tx1dd"]
-[ext_resource type="Script" uid="uid://c26x4qybcl8au" path="res://Scenes/player_hurtbox.gd" id="11_gymyn"]
+[ext_resource type="Script" uid="uid://c26x4qybcl8au" path="res://Scripts/Entities/player_hurtbox.gd" id="11_gymyn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ukyrk"]
 atlas = ExtResource("1_3smsa")

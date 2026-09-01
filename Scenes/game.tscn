@@ -4,11 +4,11 @@
 [ext_resource type="PackedScene" uid="uid://bjnq55uu1aes2" path="res://Scenes/background.tscn" id="1_qxrlw"]
 [ext_resource type="PackedScene" uid="uid://byh6adbr1glxv" path="res://Scenes/zombie.tscn" id="3_v158k"]
 [ext_resource type="PackedScene" uid="uid://bbqneleiu8nbk" path="res://Scenes/audio_manager.tscn" id="3_wrm1d"]
-[ext_resource type="Script" uid="uid://bc3odoea6gwu8" path="res://Scripts/enemy_manager.gd" id="4_1l0tm"]
-[ext_resource type="Script" uid="uid://di2tre74agsa" path="res://Scripts/xp_manager.gd" id="5_i6g32"]
+[ext_resource type="Script" uid="uid://bc3odoea6gwu8" path="res://Scripts/Entities/enemy_manager.gd" id="4_1l0tm"]
+[ext_resource type="Script" uid="uid://di2tre74agsa" path="res://Scripts/XP/xp_manager.gd" id="5_i6g32"]
 [ext_resource type="PackedScene" uid="uid://bjrrf60fc5fc6" path="res://Scenes/weapon_manager.tscn" id="5_wowpa"]
-[ext_resource type="Script" uid="uid://cunar4wunsfkc" path="res://Scripts/pickup_range.gd" id="8_h4fw4"]
-[ext_resource type="Script" uid="uid://dwna3auu7y7v2" path="res://Scenes/game_control.gd" id="9_h4fw4"]
+[ext_resource type="Script" uid="uid://cunar4wunsfkc" path="res://Scripts/Entities/pickup_range.gd" id="8_h4fw4"]
+[ext_resource type="Script" uid="uid://dwna3auu7y7v2" path="res://Scripts/UI/game_control.gd" id="9_h4fw4"]
 
 [sub_resource type="Curve2D" id="Curve2D_1l0tm"]
 _data = {
